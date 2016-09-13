@@ -1,0 +1,50 @@
+@import url("common/base.css");
+
+
+.top-info{width: 100%;padding:0 0.3125rem }
+
+.top-info-left{padding-top:0.375rem;padding-bottom:0;width: 100%;width:6.375rem;float: left }
+.top-info-left .top-info-brand{height:1.6875rem;}
+.top-info-brand .brand{width: 1.65625rem;height:100%;float: left;}
+.top-info-brand .brand img{width: 100%}
+.top-info-brand .car-no-type{padding-left:0.59375rem;color: #333333;width: 4.0625rem;float: left;height:100%;}
+.top-info-brand .car-no-type .car-no{font-size: 0.46875rem;padding-top:0.125rem;font-weight: 600}
+.top-info-brand .car-no-type .car-type{font-size: 0.40625rem;padding-top:0.25rem;font-weight: 500}
+
+.status-icon-ul{padding-left:0.3125rem;padding-top:0.37875rem}
+.status-icon-ul li{width: 0.75rem;height:0.75rem;margin-right:0.7125rem;float: left;padding: 0}
+.status-icon-ul li.last{margin-right: 0}
+.status-icon-ul li img{width: 100%;vertical-align: top;}
+
+.top-info-right{width: 2.96875rem;float: left;height:2.96875rem;margin-top:0.375rem}
+
+.avg_inspect_gray_bg{width: 100%;height: 100%;background: url("../images/obd/obd_main_cp_gray.png") no-repeat;background-size:100%;}
+.avg_inspect{position:relative;width: 100%;height: 100%;background: url("../images/obd/obd_main_check_cpbg.png") no-repeat center;margin-top:5px;background-size:100%;}
+.avg_inspect strong {position: absolute;top: 0.7rem;left: 0;width: 100%;text-align: center;font-size:1.1rem;color: red}
+.avg_inspect span {position: absolute;top: 1.95rem;left: 0;width: 100%;text-align: center;font-size: 0.3rem;}
+.avg_inspect canvas{width: 100%}
+
+
+/*当前里程等常规数据*/
+
+.car-normal-data{display: flex;flex-direction: row;padding: 24px;margin-top: 24px;border-top: 1px #eeeeee solid;}
+.normal-data-element{flex:1 1 0;text-align: center;font-size: 24px;}
+
+.normal-data-element .normal-data-label{color: #969696;}
+.normal-data-element .now-mile-label:before{content: url(../images/obd/obd_p2_icon1.png);width: 24px;display: inline-block;vertical-align: middle;padding-right: 5px;}
+.normal-data-element .next-maintain-label:before{content: url(../images/obd/obd_p2_icon2.png);width: 24px;display: inline-block;vertical-align: middle;padding-right: 5px;}
+.normal-data-element .next-date-label:before{content: url(../images/obd/obd_p2_icon3.png);width: 24px;display: inline-block;vertical-align: middle;padding-right: 5px;}
+.normal-data-text{color: #FC3434;padding-top: 10px;}
+
+/*自动旋转的图形区域*/
+.car-chart-panel{display: flex;flex-direction: row;padding: 24px;border-top: 7px greenyellow solid;}
+.car-chart-panel .avg-chart{flex:1 1 0;text-align: center;}
+.car-chart-panel .avg-chart .chart{width:124px;height: 124px;margin:8px 0 0 8px;}
+.car-chart-panel .avg-chart .chart strong img{position: absolute;top: 40px;left: 50px;}
+.car-chart-panel .avg-chart .chart span{position:absolute;top:40px;color: #ffffff;font-size: 20px;font-weight: 200;}
+.avg-chart-bg{width:140px;height: 140px;background:url("../images/obd/obd_main_cp_gray.png") no-repeat;background-size:100% ;display: inline-block;position: relative;}
+.avg-chart-oil{background:url("../images/obd/obd_main_cpbg1.png") no-repeat center;background-size: 100%;}
+.car-chart-panel .avg-chart .avg-chart-oil strong img{left: 47px;}
+.avg-chart-time{background:url("../images/obd/obd_main_cpbg2.png") center;background-size:100%;}
+.avg-chart-speed{background:url("../images/obd/obd_main_cpbg3.png") center;background-size:100%;}
+.car-chart-panel .avg-chart .avg-chart-label{text-align: center;font-size: 24px;color: #969696;}

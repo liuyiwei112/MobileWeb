@@ -1,0 +1,155 @@
+*{font-family: 'Apple LiGothic Medium',Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;margin: 0;padding: 0;border: 0;}
+ul,li{list-style: none}
+
+.fl {float: left;}
+.fr {float: right;}
+
+.hide{display: none}
+.show{display: block}
+.loading{margin-top: 20%;}
+
+.blank0 {width: 100%; height: 0px; clear: both;}
+.blank1 {width: 100%; height: 1px; clear: both;}
+.blank5 {width: 100%; height: 5px; clear: both;}
+.blank10 {width: 100%; height: 10px; clear: both;}
+.blank15 {width: 100%; height: 15px; clear: both;}
+.blank20 {width: 100%; height: 20px; clear: both;}
+.blank30 {width: 100%; height: 30px; clear: both;}
+.blank40 {width: 100%; height: 10px; clear: both;}
+
+.gray-line1 {width: 100%; height: 1px; background: #EEEEEE; clear: both;margin: 5px 0;}
+.gray_black2 {width: 100%; height: 2px; background: #EEEEEE; clear: both;}
+.gray_black5 {width: 100%; height: 5px; background: #EEEEEE; clear: both;}
+.gray-blank10 {width: 100%; height: 10px; background: #EEEEEE; clear: both;}
+.gray_black20 {width: 100%; height: 20px; background: #EEEEEE; clear: both;}
+
+.width10 {width: 10%;}
+.width15 {width: 15%;}
+.width20 {width: 20%;}
+.width25 {width: 25%;}
+.width30 {width: 30%;}
+.width33 {width: 33.3%;}
+.width35 {width: 35%;}
+.width40 {width: 40%;}
+.width45 {width: 45%;}
+.width49 {width: 49%;}
+.width49-5 {width: 49.5%;}
+.width49-5 {width: 49.5%;}
+.width50 {width: 50%;}
+.width55 {width: 55%;}
+.width60 {width: 60%;}
+.width65 {width: 65%;}
+.width70 {width: 70%;}
+.width80 {width: 80%;}
+.width85 {width: 85%;}
+.width90 {width: 90%;}
+.width100 {width: 100%;}
+
+.height50 {height: 50%;}
+.height99 {height: 99%;}
+.height100 {height: 100%;}
+
+.margin_left1 {margin-left: 1%;}
+.margin_left5 {margin-left: 5%;}
+.margin_right5 {margin-right: 5%;}
+.margin_right1 {margin-right: 1%;}
+.margin-top1 {margin-top: 1%;}
+.margin-top-3px {margin-top: 3px;}
+.margin-top-5px {margin-top: 5px;}
+.margin-top-10px {margin-top: 10px}
+
+.text-left{text-align: left;}
+.text-center{text-align: center;}
+.text-right{text-align: right;}
+.pre-price{text-decoration:line-through}
+
+
+.common-font-line {color: #666666; font-size: 0.8em; padding: 5px 0;}
+
+
+/*公用头部模块*/
+.x-panel-top{width: 100%;height:1.2rem;top:0;position: absolute;background: #FC3434;display: flex;flex-direction: row;}
+.x-panel-top .x-panel-top-left{flex: 1 1 0;}
+.x-panel-top .x-panel-top-center{flex:2 1 0}
+.x-panel-top .x-panel-top-center .x-title-bar{text-align: center;color: #ffffff;font-size: 0.6rem;line-height: 1.2rem;}
+.x-panel-top .x-panel-top-right{flex:1 1 0}
+
+.x-panel-content{margin-top: 1.2rem;}
+
+
+
+.x-panel-bottom {background: #f6f5f4;z-index:999;}
+.x-panel-bottom .tab_menu_pic img {width: 25px;}
+.x-panel-bottom .tab_menu_text {font-size: 0.8em; color: #4c4c4c; margin-top: 3px;}
+
+.img-text-line3 img {width: 56px;}
+.img_text_line4 img {width: 48px;}
+.img-text-line3 .img-text {padding-top: 5px; font-size: 0.8em}
+.img_text_line4 .img_text {padding-top: 5px; font-size: 0.8em}
+.img-text-line3 td {padding: 0 5px;}
+.img_text_line4 td {padding: 0 5px;}
+
+.font1{color: #4c4c4c}
+.font2{color: #ad4300}
+.font3{color: #fc3434 !important;}
+.font4{color: #aeaeae}
+.font5{color: #656565}
+.font6{color: #a3a3a3}
+.font7{color: #999999}
+
+.bg1{background: #ffffff}
+.bg2{background: #f3f3f3 !important;}
+
+/*1px边框*/
+.bd-none{border: 0 !important;}
+.pd-none{padding: 0 !important;}
+.bd-left1{border-left: 1px #eeeeee solid;}
+.bd-right1{border-right: 1px #eeeeee solid;}
+.bd-top1{border-top: 1px #eeeeee solid;}
+.bd-bottom1{border-bottom: 1px #eeeeee solid;}
+
+/*单位通用*/
+.unit{color: #969696;font-weight: normal;display: inline;padding-left:5px}
+
+/*按钮通用*/
+.button1{background: #fc3434;text-align: center;color:#ffffff;width:100%;}
+.button-right{background: #ffffff;color: #fc3434;text-align: center;height: 30px;line-height: 30px;font-size: 1.1em;width: 80%;border-radius:5px}
+
+.common-title{background: #ffffff;color: #333333;border-bottom:1px #eeeeee solid;}
+
+.word-break{overflow: hidden;white-space: nowrap; text-overflow: ellipsis;}
+
+/*爱车保镖类似的横向列表展示*/
+.list-items{}
+.list-items .list-item{border-bottom: 1px #eeeeee solid;}
+.list-item .item-name{float: left;width: 50%;height: 100%;}
+.list-item .list-right-array{background: url('../images/right_array.png') no-repeat right;float: left;width: 50%;height: 100%;}
+.list-item .list-right-num{border-radius:50%;background: #FF8780;text-align: center;color: #ffffff;float: right}
+
+/*商品列表展示*/
+.product-show{border-bottom: 1px #d3d3d3 solid}
+.product-name{color: #4c4c4c}
+.product-price{color: #fa3635}
+.product-evalu{color: #8d8d8d}
+/*商品评价星级展示*/
+.star{margin:0}
+.star-on{background: url('../images/star_on.png') no-repeat;background-size:100%;float: left;height:100%;background-position: center}
+.star-off{background: url('../images/star_off.png') no-repeat;background-size:100%;float: left;height:100%;background-position: center}
+.star-point{color: #8d8d8d;}
+/*商品勾选*/
+.check-radio{background: url('../images/check_icon.png') no-repeat;background-position: center;height:100%}
+.checked-radio{background: url('../images/checked-icon.png') no-repeat;background-position: center;height:100%}
+
+
+/*高德地图修正*/
+a.amap-info-close{display: none !important;}
+div.amap-info-content{background:none;border: 0;border-box-shadow:0;padding: 0;box-shadow:none}
+.amap-info-sharp{display: none !important;}
+.amap-info-outer:hover, .amap-menu-outer:hover{box-shadow:none}
+.info-content{background: url('../images/icons/obd_safe_map_bg.png') no-repeat;background-size:100%}
+.info-window-car-no{background: url('../images/icons/obd_safe_icon1.png') no-repeat left;}
+.info-window-date{background: url('../images/icons/obd_safe_icon2.png') no-repeat left;}
+.info-window-address{background: url('../images/icons/obd_safe_icon3.png') no-repeat left;}
+.info-window-text{overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.amap-touch-toolbar .amap-zoomcontrol{bottom: 0}
+.amap-icon{margin-top: 5px}

@@ -1,0 +1,14 @@
+{
+  "carId": 136,
+  "idleSDVO": null,
+  "lowSDVO": null,
+  "speedSDVO": null,
+  "thriftySDVO": null,
+  "highSDVO": null,
+  "overSpeedSDVO": null,
+  "sharpSpeedup": 0,
+  "sharpSlow": 0,
+  "totalOil": "1.32",
+  "idleTime": "00:00:00",
+  "mpgscore": 100
+}

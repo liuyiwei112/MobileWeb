@@ -1,0 +1,23 @@
+{
+  "id": null,
+  "carId": 136,
+  "maintainMile": 19000,
+  "nowMile": 13266.7,
+  "nextDay": 0,
+  "lastCheckScore": 100,
+  "avgSpeed": 0,
+  "avgOil": 0,
+  "avgTime": 0,
+  "avgOilMax": 2,
+  "avgSpeedMax": 10,
+  "avgTimeMax": 2,
+  "picUrl": "http://siov.huijiacn.com/ImageServer/CarBrand/873524208534528.png",
+  "fault": "1",
+  "tempAnomaly": "1",
+  "idlingAnomaly": "1",
+  "alerm": "0",
+  "shockAnomaly": "0",
+  "allAnomaly": "0",
+  "lostLeagueAlarm": "1",
+  "isWhitelist": "1"
+}
