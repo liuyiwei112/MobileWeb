@@ -1,0 +1,16 @@
+@import url("../../../css/common/base.css");
+
+
+.top-tap{width: 100%}
+.tap-not-checked{background: #E0DED9;color:#4c4c4c;float: left;width: 50%;text-align: center;height: 1.09375rem;line-height: 1.09375rem;font-size: 0.5rem;}
+.tap-checked{background: #ffffff;color:#fc3434;border-bottom:0.03125rem #fc3434 solid;}
+
+.car-alert-detail{border-bottom: 1px #eeeeee solid;padding: 0.23438rem 0.46875rem;}
+
+.alert-desc{color: #fc3434;font-weight: 500;font-size: 0.4375rem;}
+.alert-date{color: #fc3434;font-size: 0.34375rem;padding-top: 0.15625rem;font-weight: 300;}
+
+.car-alert-read-list .alert-desc{color: #a3a3a3}
+.car-alert-read-list .alert-date{color: #a3a3a3}
+
+.error-tip{top:4rem}

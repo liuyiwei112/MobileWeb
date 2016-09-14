@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "version": "1.1.0",
+    "menuName": "爱车保镖",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn1.png",
+    "isShow": 1,
+    "className": "main/obd/carAlert.html",
+    "owner": "android",
+    "menuSeq": 1
+  },
+  {
+    "id": 2,
+    "version": "1.1.0",
+    "menuName": "HUD",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn2.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.hud.HUDActivity",
+    "owner": "android",
+    "menuSeq": 2
+  },
+  {
+    "id": 3,
+    "version": "1.1.0",
+    "menuName": "驾驶分析",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn3.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.drivetrack.MainDriveTrackActivity",
+    "owner": "android",
+    "menuSeq": 3
+  },
+  {
+    "id": 4,
+    "version": "1.1.0",
+    "menuName": "维保服务",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn4.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.maintenance.MtaReservationListActivity",
+    "owner": "android",
+    "menuSeq": 4
+  },
+  {
+    "id": 5,
+    "version": "1.1.0",
+    "menuName": "震动告警",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn5.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.carsafe.CarSafeInfoActivity",
+    "owner": "android",
+    "menuSeq": 5
+  },
+  {
+    "id": 12,
+    "version": "1.1.0",
+    "menuName": "一键救援",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn12.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.sos.RescueActivity",
+    "owner": "android",
+    "menuSeq": 6
+  },
+  {
+    "id": 7,
+    "version": "1.1.0",
+    "menuName": "周边加油",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn7.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.map.SurroundingGasActivity",
+    "owner": "android",
+    "menuSeq": 7
+  },
+  {
+    "id": 8,
+    "version": "1.1.0",
+    "menuName": "应急电话",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn8.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.sos.EmergencyPhoneActivity",
+    "owner": "android",
+    "menuSeq": 8
+  },
+  {
+    "id": 9,
+    "version": "1.1.0",
+    "menuName": "代驾服务",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn9.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.daijia.EdaijiaActivity",
+    "owner": "android",
+    "menuSeq": 9
+  },
+  {
+    "id": 10,
+    "version": "1.1.0",
+    "menuName": "违章查询",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn10.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.illegal.IllegalActivity",
+    "owner": "android",
+    "menuSeq": 10
+  },
+  {
+    "id": 11,
+    "version": "1.1.0",
+    "menuName": "旅途导航",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn11.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.map.SurroundingGasActivity",
+    "owner": "android",
+    "menuSeq": 11
+  },
+  {
+    "id": 6,
+    "version": "1.1.0",
+    "menuName": "活动",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn6.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.activities.ActivitesActivity",
+    "owner": "android",
+    "menuSeq": 12
+  },
+  {
+    "id": 13,
+    "version": "1.1.0",
+    "menuName": "周边停车",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn13.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.map.SurroundingGasActivity",
+    "owner": "android",
+    "menuSeq": 13
+  },
+  {
+    "id": 14,
+    "version": "1.1.0",
+    "menuName": "专家咨询",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn14.png",
+    "isShow": 1,
+    "className": "DialogWindow",
+    "owner": "android",
+    "menuSeq": 14
+  },
+  {
+    "id": 15,
+    "version": "1.1.0",
+    "menuName": "续保计算",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn15.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.insurance.CalculateInsuranceActivity",
+    "owner": "android",
+    "menuSeq": 15
+  },
+  {
+    "id": 16,
+    "version": "1.1.0",
+    "menuName": "失联告警",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn16.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.carsafe.CarSafeInfoActivity",
+    "owner": "android",
+    "menuSeq": 16
+  },
+  {
+    "id": 17,
+    "version": "1.1.0",
+    "menuName": "驾驶统计",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn17.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.drivetrack.statistics.StatisticsActivity",
+    "owner": "android",
+    "menuSeq": 17
+  },
+  {
+    "id": 18,
+    "version": "1.1.0",
+    "menuName": "保养参考",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn18_1.png",
+    "isShow": 1,
+    "className": "",
+    "owner": "android",
+    "menuSeq": 18
+  },
+  {
+    "id": 19,
+    "version": "1.1.0",
+    "menuName": "性能测试",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn19.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.functionaltest.FunctionalTestAcitivity",
+    "owner": "android",
+    "menuSeq": 19
+  },
+  {
+    "id": 20,
+    "version": "1.1.0",
+    "menuName": "在线报险",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn20_1.png",
+    "isShow": 1,
+    "className": "",
+    "owner": "android",
+    "menuSeq": 20
+  },
+  {
+    "id": 21,
+    "version": "1.1.0",
+    "menuName": "语音领航",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn21_1.png",
+    "isShow": 1,
+    "className": "",
+    "owner": "android",
+    "menuSeq": 21
+  },
+  {
+    "id": 22,
+    "version": "1.1.0",
+    "menuName": "事故拍照",
+    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn22.png",
+    "isShow": 1,
+    "className": "com.asiainfo.siov.woo.camera.TakePictureActivity",
+    "owner": "android",
+    "menuSeq": 22
+  }
+]
