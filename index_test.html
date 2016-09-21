@@ -1,144 +1,42 @@
 ﻿<!DOCTYPE html>
-
 <html>
 
 	<head>
-		<script src="js/common/require.js" data-main="js/index"></script>
-		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#fc3434">
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/common/base.css" />
+		<title></title>
+		<script type="text/javascript" src="js/common/jquery.js"></script>
+		<script type="text/javascript" src="js/common/flexible/flexible.js"></script>
+		<script type="text/javascript" src="js/mui.min.js" ></script>
+		<style>
 		
+		</style>
 	</head>
 
 	<body>
-		<div class="x-panel-top">
-			<div class="x-panel-top-left">
 
-			</div>
-			<div class="x-panel-top-center">
-				<div class="x-title-bar">
-					沃享通
-				</div>
-			</div>
-			<div class="x-panel-top-right">
-
-			</div>
-
-		</div>
-		<div class="x-panel-content">
-			<div class="top-info">
-				<div class="top-info-left">
-					<div class="top-info-brand">
-						<div class="brand fl">
-							<img src="./images/obd/obd_vehicle_brand_main_benz.png" />
-						</div>
-						<div class="fl car-no-type">
-							<div class="car-no">苏A88888</div>
-							<div class="car-type">E260L</div>
-						</div>
-						<div class="blank1"></div>
-					</div>
-					<div class="status-icon-list">
-						<ul class="status-icon-ul">
-							<li><img src="./images/obd/obd_home_safe1.png" /> </li>
-							<li><img src="./images/obd/obd_home_safe2_red.png" /> </li>
-							<li><img src="./images/obd/obd_home_safe3_red.png" /> </li>
-							<li class="last"><img src="./images/obd/obd_home_safe4.png" /> </li>
-						</ul>
-					</div>
-				</div>
-				<div class="top-info-right">
-					<div class="avg_inspect_gray_bg">
-						<div class="avg_inspect">
-							<strong>100</strong>
-							<span>车辆体检</span>
-						</div>
-					</div>
-				</div>
-				<div class="blank1">
-					
-				</div>
-			</div>
-			<div class="car-normal-data">
-				<div class="normal-data-element">
-					<div class="normal-data-label now-mile-label">
-						当前里程
-					</div>
-					<div class="normal-data-text now-mile-text">
-						3559
-					</div>
-				</div>
-				<div class="normal-data-element">
-					<div class="normal-data-label next-maintain-label">
-						下次保养
-					</div>
-					<div class="normal-data-text next-maintain-text">
-						5000
-					</div>
-				</div>
-				<div class="normal-data-element">
-					<div class="normal-data-label next-date-label">
-						预计天数
-					</div>
-					<div class="normal-data-text next-date-text">
-						37
-					</div>
-				</div>
-			</div>
-			<div class="car-chart-panel">
-				<div class="avg-chart">
-					<div class="avg-chart-bg">
-						<div class="chart avg-chart-oil">
-							<img src="./images/obd/obd_cp_icon1.png"/>  
-			            		<span>7.8</span>
-						</div>
-					</div>
-					<div class="avg-chart-label">
-						平均油耗
-					</div>
-				</div>
-				<div class="avg-chart">
-					<div class="avg-chart-bg">
-						<div class="chart avg-chart-time">
-							<img src="./images/obd/obd_cp_icon2.png"/>  
-			            		<span>7.8</span>
-						</div>
-					</div>
-					<div class="avg-chart-label">
-						平均时长
-					</div>
-				</div>
-				<div class="avg-chart">
-					<div class="avg-chart-bg">
-						<div class="chart avg-chart-speed">
-							
-			            		<img src="./images/obd/obd_cp_icon3.png"/>  
-			            		<span>7.8</span>
-						</div>
-					</div>
-					<div class="avg-chart-label">
-						平均速度
-					</div>
-				</div>
-			</div>
-		
-			<div class="swiper-container">
-		        <div class="swiper-wrapper">
-		            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            <div class="swiper-slide">Slide 4</div>
-            <div class="swiper-slide">Slide 5</div>
-            <div class="swiper-slide">Slide 6</div>
-            <div class="swiper-slide">Slide 7</div>
-            <div class="swiper-slide">Slide 8</div>
-            <div class="swiper-slide">Slide 9</div>
-            <div class="swiper-slide">Slide 10</div>
-		        </div>
-		        <!-- Add Pagination -->
-		        <div class="swiper-pagination"></div>
-		        <div class="blank30"></div>
-		    </div>
-		
-		</div>
-		<div class="x-panel-bottom"></div>
+		<script>
+			mui.init({
+				statusBarBackground: '#fc3434',
+			    subpages:[{
+			      url:'index.html',
+			      id:'index.html',
+			      styles:{
+			        top:'0px',//mui标题栏默认高度为45px；
+			        bottom:'0px'//默认为0px，可不定义；
+			      }
+			    }]
+			  });
+			  
+			  mui.plusReady(function() {
+			  	//仅支持竖屏显示
+				plus.screen.lockOrientation("portrait-primary");
+			  })
+		</script>
 	</body>
+
 </html>

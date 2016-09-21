@@ -25,7 +25,7 @@
     "menuName": "驾驶分析",
     "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn3.png",
     "isShow": 1,
-    "className": "com.asiainfo.siov.woo.drivetrack.MainDriveTrackActivity",
+    "className": "main/obd/DriverAnalysisList.html",
     "owner": "android",
     "menuSeq": 3
   },

@@ -1,31 +1,13 @@
-//定义需要引入的JS 模块
-require.config({　　　
-	baseUrl: "",
-	paths: {　　
-		"jquery": "js/common/jquery",
-		"flexible": "js/common/flexible/flexible",
-		"tools": "js/common/tools",
-		"swiper": "js/common/swiper/js/swiper.min",
-		"circle": "js/common/circle-progress"
-	},
-	shim: {
-		'jquery': {
-			exports: 'jquery'
-		},
-		'circle': {
-			deps: ['jquery']
-		}
-	}　　　
-});
 
-//定义需要引入的JS 模块
-require(['jquery', 'flexible', 'tools', 'swiper', 'circle'], function($, _fl, _tl,_swiper,_circle) {
+
+$(function(){
+	alert(navigator.userAgent);
 	var storage = window.localStorage;
-
-	//	加载头部内容区域
-	　　
+	var _tl = getTLInstance();
+	//	加载头部内容区域　　
 //	var dataUrl = './data/obd/defaultCar.json';
 	var dataUrl = _tl.api+'getUserDefaultCar?userId=223';
+//	alert(dataUrl);
 	$.getJSON(dataUrl, function(resp) {
 		storage.setItem('defaultCar', JSON.stringify(resp));
 		storage.setItem('carId',resp.carId);
@@ -77,20 +59,26 @@ require(['jquery', 'flexible', 'tools', 'swiper', 'circle'], function($, _fl, _t
 				$('.swiper-wrapper .swiper-slide:last').append('<div class="menu-line">');
 			}
 			$('.swiper-wrapper .menu-line:last').append('<div class="menu-item"><div class="menu-image"><img src="images/obd/homeloading.png"/></div><div class="menu-text"></div></div>');
+			if(i%3==2){
+				$('.swiper-wrapper .swiper-slide:last').append('<div class="blank1">');
+			}
 			_tl.loadImg(resp[i].menuPic, $('.swiper-wrapper .menu-item:last').find('img'))
 			$('.swiper-wrapper .menu-item:last').find('.menu-text').html(resp[i].menuName);
 			$('.swiper-wrapper .menu-item:last').attr('page', resp[i].className)
 
 		}
 		$('.swiper-wrapper .menu-item').on('click', function() {
-			window.location.href = $(this).attr('page');
-
+//			//window.location.href = $(this).attr('page');
+//			window.parent.toUrl($(this).attr('page'));
+//			top.location.href  = $(this).attr('page') ;
+			_tl.toUrl($(this).attr('page'));
 		})
 
-		var swiper = new _swiper('.swiper-container', {
+		var menu_swiper = new Swiper('.swiper-container', {
 			pagination: '.swiper-pagination',
-			paginationClickable: true
+			paginationClickable: false
 		});
+		
 	})
-
-});
+	
+})

@@ -1,7 +1,7 @@
 @import url("common/base.css");
 @import url("../js/common/swiper/css/swiper.min.css");
 
-
+.x-panel-content{background: #ffffff;}
 .top-info{width: 100%;padding:0 0.3125rem }
 
 .top-info-left{padding-top:0.375rem;padding-bottom:0;width: 100%;width:6.375rem;float: left }
@@ -13,7 +13,7 @@
 .top-info-brand .car-no-type .car-type{font-size: 0.40625rem;padding-top:0.25rem;font-weight: 500}
 
 .status-icon-ul{padding-left:0.3125rem;padding-top:0.37875rem}
-.status-icon-ul li{width: 0.75rem;height:0.75rem;margin-right:0.7125rem;float: left;padding: 0}
+.status-icon-ul li{width: 0.75rem;height:0.75rem;margin-right:0.5525rem;float: left;padding: 0}
 .status-icon-ul li.last{margin-right: 0}
 .status-icon-ul li img{width: 100%;vertical-align: top;}
 
@@ -38,7 +38,7 @@
 .normal-data-text{color: #FC3434;padding-top: 0.15625rem;}
 
 /*自动旋转的图形区域*/
-.car-chart-panel{display: flex;flex-direction: row;padding: 0.375rem;border-top: 0.10938rem greenyellow solid;}
+.car-chart-panel{display: flex;flex-direction: row;padding:0.25rem 0.375rem 0.15rem 0.375rem;border-top: 0.10938rem greenyellow solid;}
 .car-chart-panel .avg-chart{flex:1 1 0;text-align: center;}
 .car-chart-panel .avg-chart .chart{width:1.9375rem;height: 1.9375rem;margin:0.125rem 0 0 0.125rem;}
 .car-chart-panel .avg-chart .chart img{width:0.6875rem;position: absolute;top:0.54688rem;text-align: center;left:0.78125rem}
@@ -51,8 +51,9 @@
 .avg-chart canvas{width: 2.1875rem;height:2.1875rem;position: absolute;left: 0;top: 0;}
 
 
-.swiper-container {width: 100%;border-top: 0.10938rem deepskyblue solid;}
-.swiper-pagination{bottom: 0 !important;}
+.swiper-container {width: 100%;border-top: 0.10938rem deepskyblue solid;height:6.5rem}
+.swiper-wrapper{width: 10rem !important;position: absolute !important;}
+.swiper-pagination{bottom: 10px !important;}
 .swiper-pagination-bullet-active{background: #FC3434 !important;}
 
 .menu-line{width: 100%;display: flex;flex-direction: row;margin-top: 0.3125rem;}

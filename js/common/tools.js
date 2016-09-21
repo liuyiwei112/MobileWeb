@@ -1,16 +1,10 @@
 //定义需要引入的JS 模块
-require.config({　　　　
-	baseUrl: '',
-	paths: {　　　　　
-		"jquery": "js/common/jquery"
-	}
-});
-
-define(['jquery'], function($) {　　　　
+function getTLInstance() {
 	return {
 		mapUrl: 'http://webapi.amap.com/maps?v=1.3&key=1a7e2aec7f2a1b21b38ee9c88d652adb',
-		api:'http://115.28.22.146:9090/ytcrm/rest/',
-		//地图类工具
+		api: 'http://115.28.22.146:9090/ytcrm/rest/',
+//		api: 'http://192.168.1.115:8080/ytcrm/rest/',
+//		地图类工具
 		//由于json的经纬度序列反了，因此需要切换
 		changeLatLng: function(pointList) {
 			var newPointList = [];
@@ -58,7 +52,7 @@ define(['jquery'], function($) {　　　　
 				thickness: thickness
 			});
 		},
-		loadImg(src, imgObj) {
+		loadImg: function(src, imgObj) {
 			var img = new Image();
 			img.onload = function() {
 				img.onload = null;
@@ -99,6 +93,17 @@ define(['jquery'], function($) {　　　　
 		//获取时:分:秒
 		getHMS: function(dateStr) {
 			return this.getHH(dateStr) + ':' + this.getMM(dateStr) + ':' + this.getSS(dateStr);
+		},
+		toUrl: function(url) {
+			var webview = mui.openWindow({
+				url: url,
+				id: url,
+				show: {
+					autoShow: true, //页面loaded事件发生后自动显示，默认为true
+					aniShow: 'slide-in-right' //页面显示动画，默认为”slide-in-right“；
+				}
+			});
+			console.log(webview.id + '@@'); //输出mui字符串
 		}　　　　
-	};　　
-});
+	};　
+}　　　

@@ -1,15 +1,6 @@
-//定义需要引入的JS 模块
-require.config({　　　
-	baseUrl: "../../js",
-	paths: {　　　　　
-		"jquery": "common/jquery",
-		"flexible": "common/flexible/flexible",
-		"tools": "common/tools"
-	}　　
-});
-
-require(['jquery', 'flexible', 'tools'], function($, _fl, _tl) {
+$(function() {
 	var storage = window.localStorage;
+	var _tl = getTLInstance();
 //	var dataUrl = '../../data/obd/carAlert.json';
 	var carId = storage.getItem('carId');
 	var dataUrl = _tl.api+'alerm/alermCount?carId='+carId;
@@ -40,7 +31,7 @@ require(['jquery', 'flexible', 'tools'], function($, _fl, _tl) {
 				alermName : alertName
 			}
 			storage.setItem("carAlertParam",JSON.stringify(params));
-			window.location.href="carAlertList.html"
+			_tl.toUrl("carAlertList.html");
 		})
 
 	});
