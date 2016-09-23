@@ -42,7 +42,7 @@
 .car-chart-panel .avg-chart{flex:1 1 0;text-align: center;}
 .car-chart-panel .avg-chart .chart{width:1.9375rem;height: 1.9375rem;margin:0.125rem 0 0 0.125rem;}
 .car-chart-panel .avg-chart .chart img{width:0.6875rem;position: absolute;top:0.54688rem;text-align: center;left:0.78125rem}
-.car-chart-panel .avg-chart .chart span{position:absolute;top:1.25rem;color: #ffffff;font-size: 0.3125rem;font-weight: 200;width: 100%;text-align: center;left:0}
+.car-chart-panel .avg-chart .chart span{position:absolute;top:1.25rem;color: #ffffff;font-size: 0.3725rem;font-weight: 200;width: 100%;text-align: center;left:0}
 .avg-chart-bg{width:2.1875rem;height: 2.1875rem;background:url("../images/obd/obd_main_cp_gray.png") no-repeat;background-size:100% ;display: inline-block;position: relative;}
 .avg-chart-oil{background:url("../images/obd/obd_main_cpbg1.png") no-repeat center;background-size: 100%;}
 .avg-chart-time{background:url("../images/obd/obd_main_cpbg2.png") center;background-size:100%;}

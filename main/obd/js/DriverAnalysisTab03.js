@@ -1,12 +1,14 @@
 var storage = window.localStorage;
 var _tl = getTLInstance();
+var tripSerial = storage.getItem('tripSerial');
 
 $(function() {
 	loadData();
 })
 
 function loadData(){
-		var dataUrl = '../../data/obd/tripDetail03.json';
+//		var dataUrl = '../../data/obd/tripDetail03.json';
+		var dataUrl = _tl.api+'environmentalDetailsDrivingReport/'+tripSerial
 		$.getJSON(dataUrl, function(data) {
 			//头部汇总数据
 			//$('.driver-oil-score-point').html(data.mpgscore);

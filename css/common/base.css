@@ -73,10 +73,15 @@ body{background: #ffffff;}
 .x-panel-top .x-panel-top-center .x-title-bar{text-align: center;color: #ffffff;font-size: 0.6rem;line-height: 1.2rem;}
 .x-panel-top .x-panel-top-right{flex:1 1 0}
 
-.x-panel-content{margin-top: 1.2rem;overflow: hidden;min-height: 15rem;}
+.x-panel-content{margin-top: 1.2rem;position: absolute;top: 0;bottom: 0;width: 100%;}
 
-.error-tip{background: url(../../images/obd/obd_dialog_error.png) no-repeat center top;width: 100%; height:2.5rem;position: relative;top:1.25rem;background-size: 4rem;}
+.error-tip{background: url(../../images/obd/obd_dialog_error.png) no-repeat center top;width: 100%; height:2.5rem;position: absolute;top:5rem;background-size: 4rem;}
 .error-tip-text{text-align: center;position: absolute;width: 100%;font-size: 0.5rem;color: #666666;top:2rem}
+
+
+.loading-tip{background: url(../../images/loading.gif) no-repeat center top;width: 100%; height:2.5rem;position: absolute;top:5rem;background-size: 4rem;}
+.loading-tip-text{text-align: center;position: absolute;width: 100%;font-size: 0.5rem;color: #666666;top:2rem}
+
 
 .x-panel-bottom {background: #f6f5f4;z-index:999;}
 .x-panel-bottom .tab_menu_pic img {width: 25px;}
@@ -113,18 +118,21 @@ body{background: #ffffff;}
 
 /*按钮通用*/
 .button1{background: #fc3434;text-align: center;color:#ffffff;width:100%;}
-.button-right{background: #ffffff;color: #fc3434;text-align: center;height: 30px;line-height: 30px;font-size: 1.1em;width: 80%;border-radius:5px}
+.button-right{background: #ffffff;color: #fc3434;text-align: center;height: 0.8rem;line-height: 0.85rem;font-size: 1.1em;width: 80%;border-radius:5px;margin:0.2rem 0 0 0.2rem}
 
-.common-title{background: #ffffff;color: #333333;border-bottom:1px #eeeeee solid;}
+.common-title{background: #ffffff;color: #333333;border-bottom:1px #eeeeee solid;height: 1rem;line-height: 1rem;font-size: 0.4rem;}
 
 .word-break{overflow: hidden;white-space: nowrap; text-overflow: ellipsis;}
 
 /*爱车保镖类似的横向列表展示*/
 .list-items{}
-.list-items .list-item{border-bottom: 1px #eeeeee solid;}
-.list-item .item-name{float: left;width: 50%;height: 100%;}
-.list-item .list-right-array{background: url('../images/right_array.png') no-repeat right;float: left;width: 50%;height: 100%;}
-.list-item .list-right-num{border-radius:50%;background: #FF8780;text-align: center;color: #ffffff;float: right}
+.list-items .list-item{border-bottom: 1px #eeeeee solid;height: 1.2rem;line-height: 1.2rem;display: flex;flex-direction: row;}
+.list-item .item-name{float: left;height: 100%;text-indent: 0.9rem;font-size: 0.41rem;flex:3}
+.list-item .list-right-array{background: url('../../images/right_array.png') no-repeat right;height: 100%;flex:1;background-size: 0.3rem;}
+.list-item .list-right-num{margin-top:0.3rem;float: right;margin-right: 0.7rem;}
+
+/*小圆形圆圈图标*/
+.circle-span{width: 0.6rem;height: 0.6rem;line-height: 0.6rem;border-radius: 50%;background: #fc3434;color: #ffffff;font-size: 0.4rem;text-align: center;}
 
 /*商品列表展示*/
 .product-show{border-bottom: 1px #d3d3d3 solid}

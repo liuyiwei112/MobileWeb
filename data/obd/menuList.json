@@ -10,16 +10,6 @@
     "menuSeq": 1
   },
   {
-    "id": 2,
-    "version": "1.1.0",
-    "menuName": "HUD",
-    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn2.png",
-    "isShow": 1,
-    "className": "com.asiainfo.siov.woo.hud.HUDActivity",
-    "owner": "android",
-    "menuSeq": 2
-  },
-  {
     "id": 3,
     "version": "1.1.0",
     "menuName": "驾驶分析",
@@ -45,7 +35,7 @@
     "menuName": "震动告警",
     "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn5.png",
     "isShow": 1,
-    "className": "com.asiainfo.siov.woo.carsafe.CarSafeInfoActivity",
+    "className": "main/obd/carAlertList.html",
     "owner": "android",
     "menuSeq": 5
   },

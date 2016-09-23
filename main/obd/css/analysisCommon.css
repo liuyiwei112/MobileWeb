@@ -22,5 +22,5 @@
 .driver-tips-items{margin-top: 5px}
 .driver-tips-item{display: flex;flex-direction:row;padding:10px 15px;min-height:35px;background: #ffffff;border-bottom:1px #eeeeee solid}
 .driver-tips-seq{flex:1 1 0px}
-.driver-tips-seq a{width: 0.55rem;height: 0.55rem;display: inline-block;text-align: center;background: #fa7a79;color: #ffffff;border-radius: 50%;line-height: 0.6rem;margin-top:0px}
+.driver-tips-seq a{width: 0.55rem;height: 0.55rem;display: inline-block;text-align: center;background: #fa7a79;color: #ffffff;border-radius: 50%;line-height: 0.55rem;margin-top:0px}
 .driver-tips-text{flex:8 1 0px;color: #666666}

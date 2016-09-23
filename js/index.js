@@ -1,22 +1,21 @@
+var storage = window.localStorage;
+var _tl = getTLInstance();
 
-
-$(function(){
-	alert(navigator.userAgent);
-	var storage = window.localStorage;
-	var _tl = getTLInstance();
+$(function() {
+	//	alert(navigator.userAgent);
 	//	加载头部内容区域　　
-//	var dataUrl = './data/obd/defaultCar.json';
-	var dataUrl = _tl.api+'getUserDefaultCar?userId=223';
-//	alert(dataUrl);
+	//	var dataUrl = './data/obd/defaultCar.json';
+	var dataUrl = _tl.api + 'getUserDefaultCar?userId=223';
+	//	alert(dataUrl);
 	$.getJSON(dataUrl, function(resp) {
 		storage.setItem('defaultCar', JSON.stringify(resp));
-		storage.setItem('carId',resp.carId);
+		storage.setItem('carId', resp.carId);
 		$('.car-no').html(resp.carNo);
 		$('.car-type').html(resp.seriesName);
 		$('.brand img').attr('src', resp.picUrl);
 
-//		var dataUrl2 = './data/obd/carMessage.json';
-		var dataUrl2 = _tl.api+'carMessage/'+resp.carId;
+		//		var dataUrl2 = './data/obd/carMessage.json';
+		var dataUrl2 = _tl.api + 'carMessage/' + resp.carId;
 		$.getJSON(dataUrl2, function(resp2) {
 			storage.setItem('carMessage', JSON.stringify(resp2));
 
@@ -59,18 +58,23 @@ $(function(){
 				$('.swiper-wrapper .swiper-slide:last').append('<div class="menu-line">');
 			}
 			$('.swiper-wrapper .menu-line:last').append('<div class="menu-item"><div class="menu-image"><img src="images/obd/homeloading.png"/></div><div class="menu-text"></div></div>');
-			if(i%3==2){
+			if(i % 3 == 2) {
 				$('.swiper-wrapper .swiper-slide:last').append('<div class="blank1">');
 			}
 			_tl.loadImg(resp[i].menuPic, $('.swiper-wrapper .menu-item:last').find('img'))
 			$('.swiper-wrapper .menu-item:last').find('.menu-text').html(resp[i].menuName);
-			$('.swiper-wrapper .menu-item:last').attr('page', resp[i].className)
+			$('.swiper-wrapper .menu-item:last').attr('page', resp[i].className);
+			$('.swiper-wrapper .menu-item:last').attr('m_name', resp[i].menuName);
 
 		}
 		$('.swiper-wrapper .menu-item').on('click', function() {
-//			//window.location.href = $(this).attr('page');
-//			window.parent.toUrl($(this).attr('page'));
-//			top.location.href  = $(this).attr('page') ;
+			if($(this).attr('m_name') == '震动告警') {
+				var params = {
+					alermType: '61433',
+					alermName: '驻车震动告警'
+				}
+				storage.setItem("carAlertParam", JSON.stringify(params));
+			}
 			_tl.toUrl($(this).attr('page'));
 		})
 
@@ -78,7 +82,11 @@ $(function(){
 			pagination: '.swiper-pagination',
 			paginationClickable: false
 		});
-		
+
 	})
-	
+
+	$('.avg_inspect_gray_bg').on('tap', function(){
+		_tl.toUrl('main/obd/CarInspectResult.html');
+	})
+
 })

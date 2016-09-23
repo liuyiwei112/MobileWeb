@@ -26,7 +26,6 @@ $(function() {
 			var alertType = $(this).find('.alert-type').val();
 			var alertName = $(this).find('.alert-name').html();
 			var params = {
-				carId : '1',
 				alermType : alertType,
 				alermName : alertName
 			}

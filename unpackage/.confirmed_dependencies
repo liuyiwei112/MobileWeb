@@ -1,6 +1,104 @@
 {
-  "index.html": {
-    "href": "index.html",
-    "priority": 0
-  }
+	"index.html": {
+		"href": "index.html",
+		"priority": 0,
+		"resources": [
+			"css/index.css",
+			"js/common/jquery.js",
+			"js/common/flexible/flexible.js",
+			"js/common/swiper/js/swiper.jquery.min.js",
+			"js/common/circle-progress.js",
+			"js/common/tools.js",
+			"js/index.js",
+			"data/obd/menuList.json",
+			"images/obd/homeloading.png",
+			"js/mui.min.js",
+			"images/obd/obd_vehicle_brand_main_benz.png",
+			"images/obd/obd_cp_icon1.png",
+			"images/obd/obd_cp_icon2.png",
+			"images/obd/obd_cp_icon3.png",
+			"images/obd/obd_home_safe1.png",
+			"images/obd/obd_home_safe2_red.png",
+			"images/obd/obd_home_safe3_red.png",
+			"images/obd/obd_home_safe4.png",
+			"images/obd/obd_main_check_cpbg.png",
+			"images/obd/obd_p2_icon2.png",
+			"images/obd/obd_main_cpbg3.png",
+			"images/obd/obd_main_cp_gray.png",
+			"images/obd/obd_main_cpbg1.png",
+			"images/obd/obd_p2_icon1.png",
+			"images/obd/obd_main_cpbg2.png",
+			"images/obd/obd_p2_icon3.png",
+			"js/common/swiper/css/swiper.min.css",
+			"css/common/base.css"
+		],
+		"refer": [
+			"main/obd/DriverAnalysisList.html"
+		]
+	},
+	"index_test.html": {
+		"href": "index_test.html",
+		"resources": [
+			"css/mui.min.css",
+			"css/common/base.css",
+			"js/common/jquery.js",
+			"js/common/flexible/flexible.js",
+			"js/mui.min.js",
+			"index.html"
+		],
+		"refer": [
+			"index.html"
+		],
+		"priority": 0
+	},
+	"main/obd/DriverAnalysisList.html": {
+		"resources": [
+			"images/obd/obd_dt_icon9_1.png",
+			"main/obd/js/DriverAnalysisList.js",
+			"images/obd/obd_dt_icon10_1.png",
+			"images/obd/obd_dt_icon1_1.png",
+			"images/obd/obd_button_back.png",
+			"images/obd/obd_dt_icon6_1.png",
+			"images/obd/obd_dt_icon11_1.png",
+			"images/obd/obd-driver-left.png",
+			"images/obd/obd_dt_icon3_1.png",
+			"images/obd/obd_drivetrack_item_line_point.png",
+			"images/obd/obd_dt_icon4_1.png",
+			"images/obd/obd_drivetrack_item_start_point.png",
+			"images/obd/obd_dt_icon5_1.png",
+			"css/mui/mui.picker.min.css",
+			"main/obd/css/DriverAnalysisList.css",
+			"images/obd/obd_dt_icon2_1.png",
+			"images/obd/obd-driver-right.png",
+			"images/loading.gif",
+			"images/obd/obd_dt_icon8_1.png",
+			"js/mui/mui.picker.min.js",
+			"images/obd/obd_dt_icon7_1.png",
+			"images/obd/obd_drivetrack_item_end_point.png",
+			"images/obd/obd_dialog_error.png",
+			"images/obd/obd_dt_icon12_1.png"
+		],
+		"refer": [
+			"main/obd/DriverAnalysisTabTrack.html"
+		]
+	},
+	"main/obd/DriverAnalysisTabTrack.html": {
+		"resources": [
+			"images/obd/obd_map_move_start.png",
+			"images/obd/obd_hxz_health_sha_kai.png",
+			"main/obd/js/DriverAnalysisTabTrack.js",
+			"main/obd/css/DriverAnalysisTabTrack.css",
+			"images/obd/obd_safe_icon4.png",
+			"images/obd/obd_hxz_health_sha_stop.png",
+			"js/common/jquery.js",
+			"js/common/flexible/flexible.js",
+			"js/mui.min.js",
+			"images/loading.gif",
+			"images/obd/obd_button_back.png",
+			"js/common/tools.js",
+			"css/mui.min.css",
+			"images/obd/obd_dialog_error.png",
+			"css/common/base.css"
+		]
+	}
 }

@@ -1,12 +1,21 @@
 var storage = window.localStorage;
 var _tl = getTLInstance();
+var tripSerial = storage.getItem('tripSerial');
 
 $(function() {
 	loadData();
+	$('#driver_map_container').on('tap',function(){
+		var params = {
+			'from':0
+		}
+		storage.setItem('driverTrackParam',JSON.stringify(params));
+		_tl.toUrl('DriverAnalysisTabTrack.html')	;
+	})
 })
 
 function loadData() {
-	var dataUrl = '../../data/obd/tripDetail01.json';
+//	var dataUrl = '../../data/obd/tripDetail01.json';
+	var dataUrl = _tl.api+'detailsGeneralDrivingReport/'+tripSerial
 	$.getJSON(dataUrl, function(data) {
 		//头部汇总数据
 		$('.driver-normal-score-point').html(data.safePoint);
@@ -41,6 +50,7 @@ loadGaodeMap = function(pointList, detailPointList, specialPointList) {
 	oScript.src = _tl.mapUrl;
 	oHead.appendChild(oScript);
 	oScript.onload = function() {
+		console.log("amap loaded");
 		if(window.AMap && window.AMap.Map) {
 			//获取中心点
 			var center = _tl.calcenter(pointList);
@@ -53,8 +63,6 @@ loadGaodeMap = function(pointList, detailPointList, specialPointList) {
 			storage['driverSpecialPointList'] = JSON.stringify(specialPointList);
 
 			var mapObj = new AMap.Map('driver_map_container', {
-				zoom: 11,
-				center: center,
 				dragEnable: true
 			});
 
@@ -84,27 +92,33 @@ loadGaodeMap = function(pointList, detailPointList, specialPointList) {
 			});
 			markerEnd.setMap(mapObj);
 
-			//标记特殊点
-			for(var j = 0; j < specialPointList.length; j++) {
-				var icon = {},
-					spPoint = specialPointList[j];
-				if(spPoint.sharpSlow == 1) {
-					icon = new AMap.Icon({
-						image: '../../images/obd/obd_hxz_health_sha.png'
-					})
-				} else if(spPoint.sharpSpeedup == 1) {
-					icon = new AMap.Icon({
-						image: '../../images/obd/obd_hxz_health_jia.png'
-					})
+			if(specialPointList){
+				//标记特殊点
+				for(var j = 0; j < specialPointList.length; j++) {
+					var icon = {},
+						spPoint = specialPointList[j];
+					if(spPoint.sharpSlow == 1) {
+						icon = new AMap.Icon({
+							image: '../../images/obd/obd_hxz_health_sha.png'
+						})
+					} else if(spPoint.sharpSpeedup == 1) {
+						icon = new AMap.Icon({
+							image: '../../images/obd/obd_hxz_health_jia.png'
+						})
+					}
+	
+					var specialMarker = new AMap.Marker({
+						position: [spPoint.trackLng, spPoint.trackLat],
+						icon: icon
+					});
+					specialMarker.setMap(mapObj);
 				}
-
-				var specialMarker = new AMap.Marker({
-					position: [spPoint.trackLng, spPoint.trackLat],
-					icon: icon
-				});
-				specialMarker.setMap(mapObj);
-
 			}
+			mapObj.setFitView();
 		}
+	}
+	oScript.onunload = function(){
+		console.log("amap unload");
+		alert(3);
 	}
 }

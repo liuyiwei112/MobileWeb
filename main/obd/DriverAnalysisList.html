@@ -7,12 +7,14 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="#fc3434">
 		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/mui/mui.picker.min.css" />
 		<link rel="stylesheet" href="css/DriverAnalysisList.css" />
 		<title></title>
 		<script type="text/javascript" src="../../js/common/jquery.js" ></script>
 		<script type="text/javascript" src="../../js/common/flexible/flexible.js" ></script>
 		<script type="text/javascript" src="../../js/common/tools.js" ></script>
 		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/mui/mui.picker.min.js" ></script>
 		<script type="text/javascript" src="js/DriverAnalysisList.js"></script>
 	</head>
 
@@ -27,7 +29,7 @@
 				</div>
 			</div>
 			<div class="x-panel-top-right">
-
+				<div class="button-right button-daily-track">每日足迹</div>
 			</div>
 		</div>
 
@@ -35,11 +37,11 @@
 			<div class="date-selector width100">
 				<table class="width100 bg1">
 					<tr>
-						<td class="width33 text-right">
+						<td class="width33 text-right btn-date-left">
 							<img src='../../images/obd/obd-driver-left.png'/>
 						</td>
 						<td class="width33 text-center now-date">2015-04-08</td>
-						<td class="width33">
+						<td class="width33 btn-date-right">
 							<img src='../../images/obd/obd-driver-right.png'/>
 						</td>
 					</tr>
@@ -103,7 +105,18 @@
 					</tr>
 				</table>
 			</div>
+			<div class="gray-blank10"></div>
 			<div class="driver-list">
+			</div>
+			
+			<div class="error-tip hide">
+				<span class="error-tip-text">暂无驾驶数据</span>
+				
+			</div>
+			
+			<div class="loading-tip hide">
+				<span class="loading-tip-text">正在加载中...</span>
+				
 			</div>
 
 			<div class="driver-item-model hide">
@@ -111,6 +124,7 @@
 					<div class="start-icon fl width15 height100"></div>
 					<div class="start-position fr width80 height100">
 						<div class="time start-time font4">11:32:08</div>
+						<input type="hidden" class="st-value" value=""/>
 						<div class="address start-address font5">南京市鼓楼区紫峰大厦</div>
 					</div>
 				</div>

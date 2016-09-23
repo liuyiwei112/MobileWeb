@@ -1,11 +1,11 @@
-﻿{
+{
 	"@platforms": [
 		"android",
 		"iPhone",
 		"iPad"
 	],
-	"id": "H5FE65461",/*应用的标识，创建应用时自动生成，勿手动修改*/
-	"name": "HbDemo",/*应用名称，程序桌面图标名称*/
+	"id": "com.asiainfo.siov.woo",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"name": "沃享通",/*应用名称，程序桌面图标名称*/
 	"version": {
 		"name": "1.0",/*应用版本名称*/
 		"code": ""
@@ -108,7 +108,7 @@
 	"plus": {
 		"splashscreen": {
 			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
-			"waiting": true,
+			"waiting": false,
 			"delay": "2000"
 		},
 		"popGesture": "close",/*设置应用默认侧滑返回关闭Webview窗口，"none"为无侧滑返回功能，"hide"为侧滑隐藏Webview窗口。参考http://ask.dcloud.net.cn/article/102*/
@@ -204,16 +204,196 @@
 		"pages": {
 			"index.html": {
 				"href": "index.html",
+				"priority": 0,
+				"resources": [
+					"css/index.css",
+					"css/common/base.css",
+					"images/obd/obd_button_back.png",
+					"images/obd/obd_dialog_error.png",
+					"images/loading.gif",
+					"js/common/swiper/css/swiper.min.css",
+					"images/obd/obd_main_cp_gray.png",
+					"images/obd/obd_main_check_cpbg.png",
+					"images/obd/obd_p2_icon1.png",
+					"images/obd/obd_p2_icon2.png",
+					"images/obd/obd_p2_icon3.png",
+					"images/obd/obd_main_cpbg1.png",
+					"images/obd/obd_main_cpbg2.png",
+					"images/obd/obd_main_cpbg3.png",
+					"js/common/jquery.js",
+					"js/common/flexible/flexible.js",
+					"js/common/swiper/js/swiper.jquery.min.js",
+					"js/common/circle-progress.js",
+					"js/common/tools.js",
+					"js/index.js",
+					"data/obd/menuList.json",
+					"images/obd/homeloading.png",
+					"js/mui.min.js",
+					"images/obd/obd_vehicle_brand_main_benz.png",
+					"images/obd/obd_cp_icon1.png",
+					"images/obd/obd_cp_icon2.png",
+					"images/obd/obd_cp_icon3.png",
+					"images/obd/obd_home_safe1.png",
+					"images/obd/obd_home_safe2_red.png",
+					"images/obd/obd_home_safe3_red.png",
+					"images/obd/obd_home_safe4.png"
+				],
+				"refer": [
+					"main/obd/DriverAnalysisList.html"
+				]
+			},
+			"index_test.html": {
+				"href": "index_test.html",
+				"resources": [
+					"css/mui.min.css",
+					"fonts/mui.ttf",
+					"css/common/base.css",
+					"images/obd/obd_button_back.png",
+					"images/obd/obd_dialog_error.png",
+					"images/loading.gif",
+					"js/common/jquery.js",
+					"js/common/flexible/flexible.js",
+					"js/mui.min.js",
+					"index.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"main/obd/DriverAnalysisList.html": {
+				"resources": [
+					"images/obd/obd_dt_icon9_1.png",
+					"main/obd/js/DriverAnalysisList.js",
+					"images/obd/obd_dt_icon10_1.png",
+					"images/obd/obd_dt_icon1_1.png",
+					"images/obd/obd_button_back.png",
+					"images/obd/obd_dt_icon6_1.png",
+					"images/obd/obd_dt_icon11_1.png",
+					"images/obd/obd-driver-left.png",
+					"images/obd/obd_dt_icon3_1.png",
+					"images/obd/obd_drivetrack_item_line_point.png",
+					"images/obd/obd_dt_icon4_1.png",
+					"images/obd/obd_drivetrack_item_start_point.png",
+					"images/obd/obd_dt_icon5_1.png",
+					"css/mui/mui.picker.min.css",
+					"main/obd/css/DriverAnalysisList.css",
+					"images/obd/obd_dt_icon2_1.png",
+					"images/obd/obd-driver-right.png",
+					"images/loading.gif",
+					"images/obd/obd_dt_icon8_1.png",
+					"js/mui/mui.picker.min.js",
+					"images/obd/obd_dt_icon7_1.png",
+					"images/obd/obd_drivetrack_item_end_point.png",
+					"images/obd/obd_dialog_error.png",
+					"images/obd/obd_dt_icon12_1.png"
+				],
+				"refer": [
+					"main/obd/DriverAnalysisTabTrack.html"
+				],
+				"priority": 0
+			},
+			"main/obd/DriverAnalysisTabTrack.html": {
+				"resources": [
+					"images/obd/obd_map_move_start.png",
+					"images/obd/obd_hxz_health_sha_kai.png",
+					"main/obd/js/DriverAnalysisTabTrack.js",
+					"main/obd/css/DriverAnalysisTabTrack.css",
+					"images/obd/obd_safe_icon4.png",
+					"images/obd/obd_hxz_health_sha_stop.png",
+					"js/common/jquery.js",
+					"js/common/flexible/flexible.js",
+					"js/mui.min.js",
+					"images/loading.gif",
+					"images/obd/obd_button_back.png",
+					"js/common/tools.js",
+					"css/mui.min.css",
+					"images/obd/obd_dialog_error.png",
+					"css/common/base.css"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},
 		"idle": {
 			"resources": [
+				"data/obd/dailyAllTrack.json",
+				"main/obd/css/DriverAnalysisTab02.css",
+				"main/obd/css/carAlertList.css",
+				"fonts/mui-icons-extra.ttf",
+				"js/common/swiper/js/maps/swiper.jquery.umd.min.js.map",
+				"main/obd/DriverAnalysisTabFrame.html",
+				"main/obd/js/carAlertList.js",
+				"lesson2.txt",
+				"main/obd/DriverAnalysisTab03.html",
+				"images/obd/obd_dt_info_icon4.png",
+				"css/common/iscroll.css",
+				"main/obd/js/carAlertReadList.js",
+				"js/common/swiper/js/maps/swiper.min.js.map",
+				"js/common/swiper/js/swiper.jquery.js",
+				"data/obd/tripDetail01.json",
+				"main/obd/css/carAlert.css",
+				"js/common/require.js",
+				"images/obd/right_array.png",
+				"js/common/swiper/js/swiper.min.js",
+				"js/common/swiper/js/swiper.js",
 				"test.css",
-				"img/HBuilder.png",
+				"main/obd/css/carAlertDetail.css",
+				"images/pull-icon@2x.png",
+				"main/obd/js/DriverAnalysisTab01.js",
+				"images/obd/obd_safe_icon1.png",
+				"main/obd/css/analysisCommon.css",
 				"lesson1.txt",
+				"js/common/swiper/js/swiper.jquery.umd.min.js",
+				"js/common/swiper/js/swiper.jquery.umd.js",
+				"main/obd/DriverAnalysisTab01.html",
+				"data/obd/faultlist.json",
+				"images/obd/obd_safe_map_bg.png",
+				"data/obd/carAlertNotRead.json",
+				"images/obd/obd_dt_icon8.png",
+				"images/obd/obd_dt_huangbao.png",
+				"data/obd/tripDetail02.json",
+				"js/common/dateTools.js",
+				"images/obd/obd_map_move_rest.png",
+				"images/obd/obd_dt_shengyou.png",
+				"images/obd/obd_dt_icon11.png",
+				"images/obd/obd_carsafe_location_icon_03.png",
+				"data/obd/dailyTripList.json",
+				"js/common/flexible/flexible_css.js",
+				"data/obd/tripDetail03.json",
+				"images/obd/obd_hxz_health_jia.png",
+				"images/obd/obd_safe_icon3.png",
+				"main/obd/carAlert.html",
+				"data/obd/dailyTotal.json",
+				"js/common/iscroll.js",
+				"main/obd/DriverAnalysisTab02.html",
+				"images/obd/obd_dt_icon7.png",
+				"data/obd/defaultCar.json",
+				"images/obd/obd_dt_icon9.png",
+				"main/obd/js/carAlertDetail.js",
+				"main/obd/carAlertList.html",
+				"main/obd/js/DriverAnalysisTab02.js",
+				"main/obd/css/DriverAnalysisTabFrame.css",
+				"data/obd/carMessage.json",
+				"main/obd/js/DriverAnalysisTab03.js",
+				"images/obd/obd_dt_info_icon6.png",
+				"images/obd/obd_carsafe_location_icon_04.png",
+				"js/common/swiper/js/maps/swiper.jquery.min.js.map",
+				"data/obd/carAlertRead.json",
+				"images/obd/obd_dt_icon10.png",
+				"images/obd/obd_hxz_health_sha.png",
+				"images/obd/obd_dt_info_icon3.png",
+				"images/obd/obd_dt_info_icon1.png",
+				"data/obd/carAlert.json",
+				"images/HBuilder.png",
+				"js/common/swiper/css/swiper.css",
+				"main/obd/css/DriverAnalysisTab03.css",
+				"js/common/require.min.js",
+				"images/obd/obd_dt_info_icon2.png",
+				"main/obd/js/carAlert.js",
+				"images/obd/obd_dt_info_icon5.png",
+				"main/obd/carAlertDetail.html",
 				"test.js",
-				"lesson2.txt"
+				"images/obd/obd_safe_icon2.png",
+				"main/obd/css/DriverAnalysisTab01.css"
 			]
 		}
 	},"fullscreen":false

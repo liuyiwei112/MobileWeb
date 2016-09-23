@@ -4,6 +4,12 @@ function getTLInstance() {
 		mapUrl: 'http://webapi.amap.com/maps?v=1.3&key=1a7e2aec7f2a1b21b38ee9c88d652adb',
 		api: 'http://115.28.22.146:9090/ytcrm/rest/',
 //		api: 'http://192.168.1.115:8080/ytcrm/rest/',
+		show:function(obj){
+			obj.removeClass('hide');
+		},
+		hide:function(obj){
+			obj.addClass('hide');
+		},
 //		地图类工具
 		//由于json的经纬度序列反了，因此需要切换
 		changeLatLng: function(pointList) {
@@ -62,6 +68,46 @@ function getTLInstance() {
 		},
 
 		//日期类公用方法
+		//传参:Date对象;
+		//type = 0 return 2016-01-01
+		//type = 1 return 20160101
+		getDateStr:function(_dateObj,type){
+			var d = _dateObj
+			var year = d.getFullYear(),day = d.getDate();
+			var month = d.getMonth()+1;
+			if(month<10){
+				month = '0'+month;
+			}
+			if(type==0){
+				return year+'-'+month+'-'+day;
+			}else if(type==1){
+				return year+''+month+''+day;
+			}
+		},
+		//YYYY-MM-DD to YYYYMMDD
+		changeDateF1:function(_date){
+			var d = this.toDateObj(_date);
+			return this.getDateStr(d,1);
+		},
+		getNow:function(type){
+			return this.getDateStr(new Date(),type);
+		},
+		//传参方式2016-01-01
+		toDateObj:function(_date){
+			var a = _date.split('-');
+			return new Date(a[0],a[1]-1,a[2]);
+		},
+		//传参方式2016-01-01
+		getPreDay:function(_date,type){
+			var d = this.toDateObj(_date);
+			var preDate = new Date(d.getTime() - 24*60*60*1000); 
+			return this.getDateStr(preDate,type);
+		},
+		getNextDay:function(_date,type){
+			var d = this.toDateObj(_date);
+			var nextDate = new Date(d.getTime() + 24*60*60*1000); 
+			return this.getDateStr(nextDate,type);
+		},
 		//获取年
 		getYear: function(dateStr) {
 			return dateStr.substring(0, 4);
@@ -104,6 +150,25 @@ function getTLInstance() {
 				}
 			});
 			console.log(webview.id + '@@'); //输出mui字符串
+		},
+		
+		//图片旋转方法
+		turnARImg:function(img,speed){
+			if(!speed){
+				speed = 1500;
+			}
+			rotateStop = false;
+			var rotate = function(){
+				img.animate({rotate: '360'}, speed, 'linear', function() {
+					if(!rotateStop){
+						rotate();
+					}
+				});
+			}
+			rotate();
+		},
+		setRotateStop:function(flag){
+			rotateStop = flag;
 		}　　　　
 	};　
 }　　　

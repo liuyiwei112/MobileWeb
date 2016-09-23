@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#fc3434">
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="css/CarInspectResult.css" />
+		<title></title>
+		<script type="text/javascript" src="../../js/common/jquery.js"></script>
+		<script type="text/javascript" src="../../js/common/flexible/flexible.js"></script>
+		<script type="text/javascript" src="../../js/common/tools.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/common/circle-progress.js" ></script>
+		<script type="text/javascript" src="js/CarInspectResult.js" ></script>
+	</head>
+
+	<body>
+		<div class="x-panel-top">
+			<div class="x-panel-top-left" onclick="mui.back()">
+				<span class="left-icon"></span>
+			</div>
+			<div class="x-panel-top-center">
+				<div class="x-title-bar">
+					体检报告
+				</div>
+			</div>
+			<div class="x-panel-top-right">
+			</div>
+		</div>
+		<div class="x-panel-content">
+			<div class="inspect-top bg1">
+				<div class="inspect-score">
+					<div class="avg_inspect_gray_bg">
+						<div class="avg_inspect">
+							<strong>75</strong>
+						</div>
+					</div>
+				</div>
+				<div class="inspect-rank">
+					<div class="inspect-item-count">
+						<div class="fl width50">
+							<label class="unit">正常</label><label class="normal-num">3998</label>
+						</div>
+						<div class="fr width50 error-div">
+							<label class="unit">异常</label><label class="font3 error-num">2</label>
+						</div>
+						<div class="blank1"></div>
+					</div>
+					<div class="hit-percent-area">
+						您的爱车击败了全国<label class="font3 fit-percent">20%</label>的车友
+					</div>
+					<div class="button1 inspect-button">再次检查</div>
+				</div>
+			</div>
+			
+			<div class="gray-blank10"></div>
+
+			<div class="inspect-result-area">
+				<div class="common-title bd-bottom1 font1">您的爱车在<label class="font3">2015-10-16 14:48</label>分体检报告</div>
+				<div class="list-items inspect-error-items">
+					<div class="list-item">
+						<div class="item-name inspect-error font1">燃油和空气侦查系统</div>
+						<div class="list-right-array">
+							<div class="list-right-num circle-span">1</div>
+						</div>
+					</div>
+					<div class="list-item">
+						<div class="item-name inspect-ok font1">点火系统</div>
+						<div class="list-right-array hide">
+							<div class="list-right-num circle-span">1</div>
+						</div>
+					</div>
+					<div class="list-item">
+						<div class="item-name inspect-ok font1">废气控制系统</div>
+						<div class="list-right-array hide">
+							<div class="list-right-num circle-span">1</div>
+						</div>
+					</div>
+					<div class="list-item">
+						<div class="item-name inspect-ok font1">网络链接故障</div>
+						<div class="list-right-array hide">
+							<div class="list-right-num circle-span">1</div>
+						</div>
+					</div>
+					<div class="list-item">
+						<div class="item-name inspect-ok font1">其他</div>
+						<div class="list-right-array hide">
+							<div class="list-right-num circle-span">1</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</body>
+
+</html>
