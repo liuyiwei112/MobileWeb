@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#FC3434">
+		<link rel="stylesheet" href="../css/mui.min.css" />
+		<link rel="stylesheet" href="../css/common/base.css" />
+		<title></title>
+		<script type="text/javascript" src="../js/common/jquery.js"></script>
+		<script type="text/javascript" src="../js/common/flexible/flexible.js"></script>
+		<script type="text/javascript" src="../js/common/tools.js"></script>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+	</head>
+
+	<body>
+		<div class="x-panel-top">
+			<div class="x-panel-top-left" onclick="mui.back()">
+				<span class="left-icon"></span>
+			</div>
+			<div class="x-panel-top-center">
+				<div class="x-title-bar">
+					我的
+				</div>
+			</div>
+			<div class="x-panel-top-right">
+			</div>
+		</div>
+
+		<div class="x-panel-content">
+
+			<div class="list-items">
+				<div class="list-item">
+					<div class="item-name" style="background: url(../images/tools/my_info_icon3.png) no-repeat left;background-size: 0.7rem;">
+						用户姓名
+					</div>
+					<div class="list-right-array">
+						<div class="list-right-num user">123</div>
+					</div>
+				</div>
+				<div class="list-item">
+					<div class="item-name" style="background: url(../images/tools/my_info_icon4.png) no-repeat left;background-size: 0.7rem;">
+						手机号
+					</div>
+					<div class="list-right-array bg-none">
+						<div class="list-right-num mobile">123</div>
+					</div>
+				</div>
+				<div class="list-item">
+					<div class="item-name" style="background: url(../images/tools/my_info_icon5.png) no-repeat left;background-size: 0.7rem;">
+						终端编码
+					</div>
+					<div class="list-right-array bg-none">
+						<div class="list-right-num obd-no">123</div>
+					</div>
+				</div>
+				<div class="list-item">
+					<div class="item-name" style="background: url(../images/tools/my_info_icon2.png) no-repeat left;background-size: 0.7rem;">
+						修改密码
+					</div>
+					<div class="list-right-array">
+						<div class="list-right-num"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="button-red button logout" style="width: 80%;margin-left:10%;margin-top: 1rem;">退出当前账号</div>
+
+		</div>
+
+		<script>
+			_tl = getTLInstance();
+			storage = window.localStorage;
+			var userInfo = JSON.parse(storage.getItem('userInfo'));
+			var defaultCar = JSON.parse(storage.getItem('defaultCar'));
+			var _plus;
+
+			mui.plusReady(function() {
+				_plus = plus;
+			})
+
+			$(function() {
+				$('.user').html(userInfo.userName);
+				$('.mobile').html(userInfo.mobile);
+				$('.obd-no').html(defaultCar.terminalId);
+
+				//登出时删除存储的用户信息
+				$('.logout').on('tap', function() {
+					storage.removeItem('userInfo');
+					if(_plus) {
+						var view = plus.webview.all();
+						for(var i = 0; i < view.length; i++) {
+							plus.webview.close(view[i]);
+						}
+					}
+					_tl.toUrl('../login.html');
+				})
+
+			})
+		</script>
+
+	</body>
+
+</html>

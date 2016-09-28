@@ -1,10 +1,29 @@
 var storage = window.localStorage;
 var _tl = getTLInstance();
+var carId = storage.getItem('carId') + '';
+var isRefresh = false;
+
+mui.plusReady(function() {
+	
+	alert(plus.webview.all().length);
+	
+	mui.init({
+		beforeback: function() {
+			if(isRefresh){
+				var wobj = plus.webview.getWebviewById("main/obd/CarInspectResult.html");
+				wobj.reload();
+			}
+			return true;
+		}
+	})
+})
 
 $(function() {
-	_tl.turnARImg($('.inspect-check-point'),1500);
-	getFaultList();
-	setProgressAnimate();
+	setTimeout(function(){
+		_tl.turnARImg($('.inspect-check-point'), 1500);
+		getFaultList();
+		setProgressAnimate();
+	},300)
 
 })
 
@@ -42,19 +61,19 @@ function setProgressAnimate() {
 	//在开始执行时即可从服务端抓取诊断数据，在结束时将数据存于本地缓存中
 	var stepObj = [{
 		"stepName": "正在更新诊断数据",
-		"stepArray": initStepArray(11)
+		"stepArray": initStepArray(7)
 	}, {
 		"stepName": "Diagnose EOBD2",
-		"stepArray": initStepArray(5)
+		"stepArray": initStepArray(10)
 	}, {
 		"stepName": "Read DTC",
-		"stepArray": initStepArray(14)
+		"stepArray": initStepArray(5)
 	}, {
 		"stepName": "Diagnose OBD",
-		"stepArray": initStepArray(3)
+		"stepArray": initStepArray(12)
 	}, {
 		"stepName": "正在上传诊断数据",
-		"stepArray": initStepArray(15)
+		"stepArray": initStepArray(6)
 	}]
 
 	var flag1 = 0,
@@ -69,11 +88,23 @@ function setProgressAnimate() {
 		if(flag1 > stepObj.length - 1) {
 			clearInterval(m);
 
-			//存储更新最近的一次体检数据
-			setTimeout(function(){
+			//获取当前未解决故障
+			var inspectResult = {
+				'inspectTime': _tl.getDateStr(null, 2),
+				'inspectScore': 100,
+				'inspectFault': []
+			}
+			var dataUrl = _tl.api + 'getCarFaultInfo/' + carId;
+			$.get(dataUrl, function(d) {
+				if(d && d.length > 0) {
+					inspectResult['inspectFault'] = d;
+					inspectResult['inspectScore'] = 100 - 3 * d.length;
+				}
+				storage.setItem('inspectResult', JSON.stringify(inspectResult));
+				isRefresh = true;
 				mui.back();
-			},500)
-			
+			})
+
 			return;
 		}
 		var progressValue = stepObj[flag1].stepArray[flag2];
@@ -85,20 +116,15 @@ function setProgressAnimate() {
 }
 
 //生成随机序列，用以表示加载进度
-function initStepArray(gap) {
+function initStepArray(num) {
 	var stepArray = [];
-	var maxValue = 0;
-	while(maxValue < 100) {
-		//不足一次间隔
-		if(100 - maxValue < gap) {
-			stepArray.push(parseInt(Math.random() * (100 - maxValue) + maxValue));
-			maxValue = 100;
-		} else {
-			stepArray.push(parseInt(Math.random() * gap + maxValue));
-			maxValue += gap
-		}
+	for(var i = 0; i < num; i++) {
+		stepArray.push(parseInt(Math.random() * 99));
 	}
-	return stepArray;
+	stepArray.push(100);
+	return stepArray.sort(function(a,b){
+		return a-b;
+	});
 }
 
 function setProgressBar(a) {

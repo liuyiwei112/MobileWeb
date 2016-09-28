@@ -1,0 +1,20 @@
+@import url("../../css/common/base.css");
+
+.brand-img{width: 1.5rem;position: absolute;}
+.brand-img img{width: 100%;}
+
+.mui-table-view{padding-bottom: 0.01rem;background: #f3f3f3;}
+
+.mui-table-view-cell{padding: 0.4rem 0.4rem;background: #ffffff;margin: 0.2rem 0;border-bottom: 1px #e3e3e3 solid;border-top: 1px #e3e3e3 solid;}
+.mui-table-view-cell:after{height: 0;}
+
+.car-info{height: 1.5rem;width: 7rem;margin-left: 2rem;}
+.car-info-top{display: flex;direction: row;height: 50%;line-height: 0.75rem;}
+.car-info-top div{flex:1}
+.car-serial{height: 50%;line-height: 0.9rem;}
+.car-no{color: #333333;font-size: 0.48rem;}
+.obd-no,.car-serial{color: #999999;font-size: 0.4rem;}
+.obd-no{text-align: right;}
+.default-icon{background: url(../../images/default.png) no-repeat left top;background-size: 100%;position: absolute;width: 1.2rem;height: 1.2rem;left: 0;top: 0;}
+
+.x-panel-bottom{text-align: center;font-size: 0.44rem;color: #999999;background: #f1f1f1;}

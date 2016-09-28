@@ -119,18 +119,16 @@ function setProgress(pro, point) {
 	if(pro == -1) {
 //		mui(progressBar).progressbar().setProgress(pro);
 		
-		var span = querySelector('#demo1').querySelector('span');
+		var span = document.querySelector('#demo1').querySelector('span');
 		var style = span.style;
 		style.webkitTransform = 'translate3d(' + (-100 + pro) + '%,0,0)';
 		style.webkitTransitionDuration = '0ms';
-		$('.progress-point').css({
-			'left': '-1%'
-		});
 		markerReplay.hide();
 		$('.text-replay-area').addClass('hide');
 		nowLocation = 0;
 		clearInterval(autoEvent);
 		$('.replay-button').removeClass('replay-button-stop');
+		$('.progress-point').css('left',pro+'%')
 	} else {
 		markerReplay.show();
 		$('.text-replay-area').removeClass('hide');
@@ -140,13 +138,12 @@ function setProgress(pro, point) {
 		var style = span.style;
 		style.webkitTransform = 'translate3d(' + (-100 + pro) + '%,0,0)';
 		style.webkitTransitionDuration = '0ms';
-
-		$('.progress-point').css({
-			'left': (pro - 1) + '%'
-		});
 		markerReplay.setPosition([point[1], point[0]]);
 		$('.replay-date').html(_tl.getYMD(point[3]) + ' ' + _tl.getHMS(point[3]));
 		$('.replay-speed').html(point[2]);
+		
+		$('.progress-point').css('left',pro-1+'%');
+		
 	}
 }
 

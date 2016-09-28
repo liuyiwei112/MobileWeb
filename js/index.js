@@ -1,11 +1,13 @@
 var storage = window.localStorage;
 var _tl = getTLInstance();
+var userInfo = JSON.parse(storage.getItem('userInfo'));
+var carId;
 
 $(function() {
 	//	alert(navigator.userAgent);
 	//	加载头部内容区域　　
 	//	var dataUrl = './data/obd/defaultCar.json';
-	var dataUrl = _tl.api + 'getUserDefaultCar?userId=223';
+	var dataUrl = _tl.api + 'getUserDefaultCar?userId='+userInfo.userId;
 	//	alert(dataUrl);
 	$.getJSON(dataUrl, function(resp) {
 		storage.setItem('defaultCar', JSON.stringify(resp));
@@ -15,7 +17,64 @@ $(function() {
 		$('.brand img').attr('src', resp.picUrl);
 
 		//		var dataUrl2 = './data/obd/carMessage.json';
-		var dataUrl2 = _tl.api + 'carMessage/' + resp.carId;
+		loadCarMessage();
+	});　　
+
+	//加载菜单
+	var menuUrl = './data/obd/menuList.json';
+	$.getJSON(menuUrl, function(resp) {
+		for(i = 0; i < resp.length; i++) {
+			if(i % 6 == 0) {
+				$('.swiper-wrapper').append('<div class="swiper-slide">');
+			}
+			if(i % 3 == 0) {
+				$('.swiper-wrapper .swiper-slide:last').append('<div class="menu-line">');
+			}
+			$('.swiper-wrapper .menu-line:last').append('<div class="menu-item"><div class="menu-image"><img src="images/obd/homeloading.png"/></div><div class="menu-text"></div></div>');
+			if(i % 3 == 2) {
+				$('.swiper-wrapper .swiper-slide:last').append('<div class="blank1">');
+			}
+			_tl.loadImg(resp[i].menuPic, $('.swiper-wrapper .menu-item:last').find('img'))
+			$('.swiper-wrapper .menu-item:last').find('.menu-text').html(resp[i].menuName);
+			$('.swiper-wrapper .menu-item:last').attr('page', resp[i].className);
+			$('.swiper-wrapper .menu-item:last').attr('m_name', resp[i].menuName);
+
+		}
+		$('.swiper-wrapper .menu-item').on('click', function() {
+			var menuName = $(this).attr('m_name');
+			if(menuName == '震动告警') {
+				var params = {
+					alermType: '61433',
+					alermName: '驻车震动告警'
+				}
+				storage.setItem("carAlertParam", JSON.stringify(params));
+			} else if(menuName.indexOf('周边') > -1) {
+				var params = {
+					title: menuName,
+				}
+				storage.setItem("mapUrlParam", JSON.stringify(params));
+			}
+			_tl.toUrl($(this).attr('page'));
+		})
+
+		var menu_swiper = new Swiper('.swiper-container', {
+			pagination: '.swiper-pagination',
+			paginationClickable: false
+		});
+
+	})
+
+	window.addEventListener('refresh', function(e) {
+		//      location.reload();  
+		//document.getElementById('indexHeader').innerHTML = 'Hello World';  
+		//		      alert(3);
+		loadCarMessage();
+
+	})
+
+	var loadCarMessage = function() {
+		carId = storage.getItem('carId');
+		var dataUrl2 = _tl.api + 'carMessage/' + carId;
 		$.getJSON(dataUrl2, function(resp2) {
 			storage.setItem('carMessage', JSON.stringify(resp2));
 
@@ -45,47 +104,9 @@ $(function() {
 				gradient: ["#e4393c", "#ffa800", "#a2ff00", "#5ccc30"]
 			}, 10);
 		})
-	});　　
+	}
 
-	//加载菜单
-	var menuUrl = './data/obd/menuList.json';
-	$.getJSON(menuUrl, function(resp) {
-		for(i = 0; i < resp.length; i++) {
-			if(i % 6 == 0) {
-				$('.swiper-wrapper').append('<div class="swiper-slide">');
-			}
-			if(i % 3 == 0) {
-				$('.swiper-wrapper .swiper-slide:last').append('<div class="menu-line">');
-			}
-			$('.swiper-wrapper .menu-line:last').append('<div class="menu-item"><div class="menu-image"><img src="images/obd/homeloading.png"/></div><div class="menu-text"></div></div>');
-			if(i % 3 == 2) {
-				$('.swiper-wrapper .swiper-slide:last').append('<div class="blank1">');
-			}
-			_tl.loadImg(resp[i].menuPic, $('.swiper-wrapper .menu-item:last').find('img'))
-			$('.swiper-wrapper .menu-item:last').find('.menu-text').html(resp[i].menuName);
-			$('.swiper-wrapper .menu-item:last').attr('page', resp[i].className);
-			$('.swiper-wrapper .menu-item:last').attr('m_name', resp[i].menuName);
-
-		}
-		$('.swiper-wrapper .menu-item').on('click', function() {
-			if($(this).attr('m_name') == '震动告警') {
-				var params = {
-					alermType: '61433',
-					alermName: '驻车震动告警'
-				}
-				storage.setItem("carAlertParam", JSON.stringify(params));
-			}
-			_tl.toUrl($(this).attr('page'));
-		})
-
-		var menu_swiper = new Swiper('.swiper-container', {
-			pagination: '.swiper-pagination',
-			paginationClickable: false
-		});
-
-	})
-
-	$('.avg_inspect_gray_bg').on('tap', function(){
+	$('.avg_inspect_gray_bg').on('click', function() {
 		_tl.toUrl('main/obd/CarInspectResult.html');
 	})
 

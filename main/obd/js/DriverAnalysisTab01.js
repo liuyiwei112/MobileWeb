@@ -52,6 +52,7 @@ loadGaodeMap = function(pointList, detailPointList, specialPointList) {
 	oScript.onload = function() {
 		console.log("amap loaded");
 		if(window.AMap && window.AMap.Map) {
+			_tl.hide($('.loading-tip'));
 			//获取中心点
 			var center = _tl.calcenter(pointList);
 

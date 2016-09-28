@@ -3,6 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="#fc3434">
 		<link rel="stylesheet" href="../../css/mui.min.css" />
@@ -12,8 +13,8 @@
 		<script type="text/javascript" src="../../js/common/flexible/flexible.js"></script>
 		<script type="text/javascript" src="../../js/common/tools.js"></script>
 		<script type="text/javascript" src="../../js/mui.min.js"></script>
-		<script type="text/javascript" src="../../js/common/circle-progress.js" ></script>
-		<script type="text/javascript" src="js/CarInspectResult.js" ></script>
+		<script type="text/javascript" src="../../js/common/circle-progress.js"></script>
+		<script type="text/javascript" src="js/CarInspectResult.js"></script>
 	</head>
 
 	<body>
@@ -29,7 +30,7 @@
 			<div class="x-panel-top-right">
 			</div>
 		</div>
-		<div class="x-panel-content">
+		<div class="x-panel-content x-panel-checked hide">
 			<div class="inspect-top bg1">
 				<div class="inspect-score">
 					<div class="avg_inspect_gray_bg">
@@ -49,52 +50,73 @@
 						<div class="blank1"></div>
 					</div>
 					<div class="hit-percent-area">
-						您的爱车击败了全国<label class="font3 fit-percent">20%</label>的车友
+						您的爱车击败了全国<label class="font3 fit-percent">99%</label>的车友
 					</div>
 					<div class="button1 inspect-button">再次检查</div>
 				</div>
 			</div>
-			
+
 			<div class="gray-blank10"></div>
 
 			<div class="inspect-result-area">
-				<div class="common-title bd-bottom1 font1">您的爱车在<label class="font3">2015-10-16 14:48</label>分体检报告</div>
+				<div class="common-title bd-bottom1 font1">您的爱车在<label class="font3 inspect-time">2015-10-16 14:48</label>的体检报告：</div>
+
+				<div class="common-title bd-bottom1 font1 common-title-has-error">共发现<label class="font3 error-num">2</label>处异常，请您及时处理</div>
+				<div class="common-title bd-bottom1 font1 common-title-no-error hide">您的爱车非常健康，请继续保持</div>
+
 				<div class="list-items inspect-error-items">
+				</div>
+			</div>
+			<div class="gray-blank5"></div>
+			<div class="inspect-result-area">
+				<div class="common-title bd-bottom1 font1">已检测系统列表</div>
+
+				<div class="list-items inspect-system-items">
 					<div class="list-item">
-						<div class="item-name inspect-error font1">燃油和空气侦查系统</div>
-						<div class="list-right-array">
-							<div class="list-right-num circle-span">1</div>
-						</div>
+						<div class="item-name inspect-ok font1">燃油和空气侦查系统</div>
 					</div>
 					<div class="list-item">
 						<div class="item-name inspect-ok font1">点火系统</div>
-						<div class="list-right-array hide">
-							<div class="list-right-num circle-span">1</div>
-						</div>
 					</div>
 					<div class="list-item">
 						<div class="item-name inspect-ok font1">废气控制系统</div>
-						<div class="list-right-array hide">
-							<div class="list-right-num circle-span">1</div>
-						</div>
+					</div>
+					<div class="list-item">
+						<div class="item-name inspect-ok font1">车速怠速控制系统</div>
+					</div>
+					<div class="list-item">
+						<div class="item-name inspect-ok font1">电脑控制系统</div>
 					</div>
 					<div class="list-item">
 						<div class="item-name inspect-ok font1">网络链接故障</div>
-						<div class="list-right-array hide">
-							<div class="list-right-num circle-span">1</div>
-						</div>
 					</div>
 					<div class="list-item">
 						<div class="item-name inspect-ok font1">其他</div>
-						<div class="list-right-array hide">
-							<div class="list-right-num circle-span">1</div>
-						</div>
 					</div>
 
 				</div>
+
 			</div>
 
 		</div>
+		
+		<div class="x-panel-content x-panel-not-check bg2">
+			
+			<div class="not-check-tips bg1">您尚未进行过车辆检查</div>
+			<div class="not-check-bt-area bg1" style="padding-bottom: 0.5rem;">
+				<div class="button1 inspect-button inspect-button-not-check">开始检查</div>
+			</div>
+			
+			
+		</div>	
+		
+		<div class="list-item-model hide">
+			<div class="item-name inspect-error font3"></div>
+			<div class="list-right-array">
+				<div class="list-right-num word-break fault-desc"></div>
+			</div>
+		</div>
+		
 	</body>
 
 </html>

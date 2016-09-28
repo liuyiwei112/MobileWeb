@@ -10,7 +10,20 @@ function getTLInstance() {
 		hide:function(obj){
 			obj.addClass('hide');
 		},
+		setTrans:function(_obj,position){
+			var style = _obj.style;
+			style.webkitTransform = 'translate3d(' + position + '%,0,0)';
+			style.webkitTransitionDuration = '0ms';
+		},
 //		地图类工具
+		//经纬度 高德（火星坐标系） 转 百度（BD－09） ； return [lat,lng]
+		bd_decrypt:function(gd_lat,gd_lng){
+			var x = gd_lat,y = gd_lng;
+			var z = Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * Math.PI);
+			var theta = Math.atan2(y, x) + 0.000003 * Math.cos(x * Math.PI);
+			var a = [z * Math.cos(theta) + 0.0065,z * Math.sin(theta) + 0.006]
+			return a;
+		},
 		//由于json的经纬度序列反了，因此需要切换
 		changeLatLng: function(pointList) {
 			var newPointList = [];
@@ -47,6 +60,13 @@ function getTLInstance() {
 			}
 			return [(minLng + maxLng) / 2, (minLat + maxLat) / 2];
 		},
+		toKm:function(_d){
+			if(_d<1000){
+				return _d +' m';
+			}else{
+				return (_d/1000).toFixed(2) + ' km';
+			}
+		},
 		//circle公用方法
 		initCircle: function(c_id, size, value, maxValue, fillColor, thickness) {
 			var circleValue = value / maxValue;
@@ -71,17 +91,21 @@ function getTLInstance() {
 		//传参:Date对象;
 		//type = 0 return 2016-01-01
 		//type = 1 return 20160101
+		//type = 2 return 2016-01-01 00:00:00
 		getDateStr:function(_dateObj,type){
 			var d = _dateObj
-			var year = d.getFullYear(),day = d.getDate();
-			var month = d.getMonth()+1;
-			if(month<10){
-				month = '0'+month;
+			if(!d){
+				d = new Date();
 			}
+			var year = d.getFullYear(),day = addZero(d.getDate());
+			var month = addZero(d.getMonth()+1);
+			var hour = addZero(d.getHours()),minute = addZero(d.getMinutes()),second = addZero(d.getSeconds());
 			if(type==0){
 				return year+'-'+month+'-'+day;
 			}else if(type==1){
 				return year+''+month+''+day;
+			}else if(type==2){
+				return year+'-'+month+'-'+day+' '+hour+':'+minute+':'+second;
 			}
 		},
 		//YYYY-MM-DD to YYYYMMDD
@@ -172,3 +196,12 @@ function getTLInstance() {
 		}　　　　
 	};　
 }　　　
+
+function addZero(_a){
+	if(_a<10){
+		_a = '0'+_a;
+	}
+	return _a;
+}
+
+

@@ -1,8 +1,8 @@
+var storage = window.localStorage;
+var _tl = getTLInstance();
+var carId = storage.getItem('carId');
 $(function() {
-	var storage = window.localStorage;
-	var _tl = getTLInstance();
 //	var dataUrl = '../../data/obd/carAlert.json';
-	var carId = storage.getItem('carId');
 	var dataUrl = _tl.api+'alerm/alermCount?carId='+carId;
 	$.getJSON(dataUrl, function(data) {
 		//objData.loadData(data);

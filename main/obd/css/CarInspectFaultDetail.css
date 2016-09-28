@@ -1,0 +1,10 @@
+@import url("../../../css/common/base.css");
+
+.fault-desc{background: none;width:100%;color: #999999;padding-right:15px}
+
+.inspect-error-items{background: #ffffff;padding:0 15px}
+
+.common-title2{background: #ffffff;color: #333333;height:0.8rem;width:100%;line-height:0.85rem;padding:0px 0.3rem;margin: 0.1rem 0;}
+.common-title2 .common-title2-marker{width: 3%;background: #fc3434;height:0.5rem;float:left;margin-top:0.15rem}
+.common-title2 .common-title2-text{color:#333333;height:100%;float:left;width:95%;padding-left: 3%;font-size: 0.44rem}
+.normal-text{color: #666666;padding:0.3rem 0;margin-bottom: 0.1rem;padding-left: 0.85rem;font-size: 0.42rem;line-height: 0.7rem;padding-right: 0.5rem;}

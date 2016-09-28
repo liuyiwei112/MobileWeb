@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#FC3434">
+		<link rel="stylesheet" href="../css/mui.min.css" />
+		<link rel="stylesheet" href="css/carList.css" />
+		<title></title>
+		<script type="text/javascript" src="../js/common/jquery.js"></script>
+		<script type="text/javascript" src="../js/common/flexible/flexible.js"></script>
+		<script type="text/javascript" src="../js/common/tools.js"></script>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="js/carList.js"></script>
+	</head>
+
+	<body>
+		<div class="x-panel-top">
+			<div class="x-panel-top-left" onclick="mui.back()">
+				<span class="left-icon"></span>
+			</div>
+			<div class="x-panel-top-center">
+				<div class="x-title-bar">
+					我的车辆
+				</div>
+			</div>
+			<div class="x-panel-top-right" onclick="javascript:_tl.toUrl('main/carList.html')">
+				<span class="mui-icon car-add-icon"></span>
+			</div>
+		</div>
+		<div class="x-panel-content">
+
+			<ul class="mui-table-view hide">
+
+			</ul>
+
+			<li class="hide bind-model">
+				<div class="mui-slider-right mui-disabled">
+					<a class="mui-btn mui-btn-red set-defalut">设为默认</a>
+				</div>
+				<div class="mui-slider-handle">
+					<div class="mui-table-cell">
+						<div class="brand-img">
+							<img src="../images/obd/obd_vehicle_brand_main_benz.png" />
+						</div>
+						<div class="car-info">
+							<div class="car-info-top">
+								<div class="car-no"></div>
+								<div class="obd-no"></div>
+							</div>
+							<div class="car-serial"></div>
+						</div>
+					</div>
+				</div>
+				<div class="default-icon"></div>
+			</li>
+
+			<li class="hide not-bind-model">
+				<div class="mui-slider-right mui-disabled">
+					<a class="mui-btn mui-btn-red">删除</a>
+					<a class="mui-btn mui-btn-blue">绑定OBD</a>
+				</div>
+				<div class="mui-slider-handle">
+					<div class="mui-table-cell">
+						<div class="brand-img">
+							<img src="../images/non-image.png" />
+						</div>
+						<div class="car-info">
+							<div class="car-info-top">
+								<div class="car-no"></div>
+								<div class="obd-no">未绑定</div>
+							</div>
+							<div class="car-serial"></div>
+						</div>
+					</div>
+				</div>
+			</li>
+
+			<div class="loading-tip">
+				<span class="loading-tip-text">正在加载中...</span>
+
+			</div>
+
+		</div>
+
+		<div class="x-panel-bottom text-center">
+				<span class="mui-icon mui-icon-info" style="color: red;"></span>
+				左滑可删除、变更默认车辆
+		</div>
+
+		<script>
+			mui.init();
+		</script>
+
+	</body>
+
+</html>

@@ -1,57 +1,13 @@
 {
   "index.html": {
     "href": "index.html",
-    "resources": [
-      "css/index.css",
-      "css/common/base.css",
-      "images/obd/obd_button_back.png",
-      "images/obd/obd_dialog_error.png",
-      "images/loading.gif",
-      "js/common/swiper/css/swiper.min.css",
-      "images/obd/obd_main_cp_gray.png",
-      "images/obd/obd_main_check_cpbg.png",
-      "images/obd/obd_p2_icon1.png",
-      "images/obd/obd_p2_icon2.png",
-      "images/obd/obd_p2_icon3.png",
-      "images/obd/obd_main_cpbg1.png",
-      "images/obd/obd_main_cpbg2.png",
-      "images/obd/obd_main_cpbg3.png",
-      "js/common/jquery.js",
-      "js/common/flexible/flexible.js",
-      "js/common/swiper/js/swiper.jquery.min.js",
-      "js/common/circle-progress.js",
-      "js/common/tools.js",
-      "js/index.js",
-      "data/obd/menuList.json",
-      "images/obd/homeloading.png",
-      "js/mui.min.js",
-      "images/obd/obd_vehicle_brand_main_benz.png",
-      "images/obd/obd_cp_icon1.png",
-      "images/obd/obd_cp_icon2.png",
-      "images/obd/obd_cp_icon3.png",
-      "images/obd/obd_home_safe1.png",
-      "images/obd/obd_home_safe2_red.png",
-      "images/obd/obd_home_safe3_red.png",
-      "images/obd/obd_home_safe4.png"
-    ],
+    "resources": [],
     "priority": 0
   },
   "index_test.html": {
     "href": "index_test.html",
-    "resources": [
-      "css/mui.min.css",
-      "fonts/mui.ttf",
-      "css/common/base.css",
-      "images/obd/obd_button_back.png",
-      "images/obd/obd_dialog_error.png",
-      "images/loading.gif",
-      "js/common/jquery.js",
-      "js/common/flexible/flexible.js",
-      "js/mui.min.js"
-    ],
-    "refer": [
-      "index.html"
-    ],
+    "resources": [],
+    "refer": [],
     "priority": 0
   }
 }

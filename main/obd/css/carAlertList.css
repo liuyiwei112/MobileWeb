@@ -1,7 +1,7 @@
 @import url("../../../css/common/base.css");
 
 
-.top-tap{width: 100%;position: fixed;top:1.2rem;z-index: 999;}
+.top-tap{width: 100%;position: fixed;top:1.36rem;z-index: 999;}
 .tap-not-checked{background: #E0DED9;color:#4c4c4c;float: left;width: 50%;text-align: center;height: 1.09375rem;line-height: 1.09375rem;font-size: 0.5rem;}
 .tap-checked{background: #ffffff;color:#fc3434;border-bottom:0.03125rem #fc3434 solid;}
 

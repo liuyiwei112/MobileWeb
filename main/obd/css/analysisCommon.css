@@ -8,14 +8,14 @@
 .driver-analysis-tab .active{background: #ffffff;color:#fc3434;border:0}
 
 
-.driver-common-title{background: #ffffff;padding:0 15px;color: #333333;height: 0.9rem;line-height: 1rem;font-size: 0.45rem;}
-.driver-total-score{display: flex;flex-direction:row;padding:0 15px;background: #f2f2f2;height: 1rem;line-height: 1rem;color: #888888;font-size: 0.4rem;}
+.driver-common-title{background: #ffffff;padding:0 15px;color: #333333;height: 1.1rem;line-height: 1.2rem;font-size: 0.46rem;}
+.driver-total-score{display: flex;flex-direction:row;padding:0 15px;background: #f2f2f2;height: 1rem;line-height: 1rem;color: #888888;font-size: 0.44rem;}
 .driver-total-score-label{flex:3 1 0px}
 .driver-total-score-point{flex:1 1 0px;text-align: right;font-size: 0.55rem;}
 
 .driver-data-field{background: #ffffff;padding: 0 0.5rem;}
 .driver-data-item{display: flex;flex-direction:row;padding-top: 0.15rem}
-.driver-data-icon{flex:1 1 0px;height: 100%;padding-left:0.7rem;color: #888888;}
+.driver-data-icon{flex:1 1 0px;height: 100%;padding-left:0.7rem;color: #888888;font-size: 0.4rem;}
 .driver-data-text{flex:1 1 0px;height: 100%;color: #ff9d1d;text-align: right}
 .driver-data-text label{display: inline;font-size: 0.42rem;}
 

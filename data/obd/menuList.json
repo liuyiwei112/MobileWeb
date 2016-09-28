@@ -20,16 +20,6 @@
     "menuSeq": 3
   },
   {
-    "id": 4,
-    "version": "1.1.0",
-    "menuName": "维保服务",
-    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn4.png",
-    "isShow": 1,
-    "className": "com.asiainfo.siov.woo.maintenance.MtaReservationListActivity",
-    "owner": "android",
-    "menuSeq": 4
-  },
-  {
     "id": 5,
     "version": "1.1.0",
     "menuName": "震动告警",
@@ -55,7 +45,7 @@
     "menuName": "周边加油",
     "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn7.png",
     "isShow": 1,
-    "className": "com.asiainfo.siov.woo.map.SurroundingGasActivity",
+    "className": "main/map/surroundingMap.html",
     "owner": "android",
     "menuSeq": 7
   },
@@ -65,7 +55,7 @@
     "menuName": "应急电话",
     "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn8.png",
     "isShow": 1,
-    "className": "com.asiainfo.siov.woo.sos.EmergencyPhoneActivity",
+    "className": "main/tools/emergencyTelephone.html",
     "owner": "android",
     "menuSeq": 8
   },
@@ -75,7 +65,7 @@
     "menuName": "代驾服务",
     "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn9.png",
     "isShow": 1,
-    "className": "com.asiainfo.siov.woo.daijia.EdaijiaActivity",
+    "className": "main/tools/eDaijia.html",
     "owner": "android",
     "menuSeq": 9
   },
@@ -88,16 +78,6 @@
     "className": "com.asiainfo.siov.woo.illegal.IllegalActivity",
     "owner": "android",
     "menuSeq": 10
-  },
-  {
-    "id": 11,
-    "version": "1.1.0",
-    "menuName": "旅途导航",
-    "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn11.png",
-    "isShow": 1,
-    "className": "com.asiainfo.siov.woo.map.SurroundingGasActivity",
-    "owner": "android",
-    "menuSeq": 11
   },
   {
     "id": 6,
@@ -115,7 +95,7 @@
     "menuName": "周边停车",
     "menuPic": "http://115.28.22.146:8090/ImageServer/AppMenu/obd_grid_btn13.png",
     "isShow": 1,
-    "className": "com.asiainfo.siov.woo.map.SurroundingGasActivity",
+    "className": "main/map/surroundingMap.html",
     "owner": "android",
     "menuSeq": 13
   },
