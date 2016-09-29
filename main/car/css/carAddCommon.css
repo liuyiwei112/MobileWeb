@@ -1,0 +1,14 @@
+.selected-area{background: #ffffff;width: 100%;top: 1.36rem;z-index: 99;position: fixed;}
+.brand-img{position: absolute;width: 1.2rem;top: 0.3rem;left: 0.3rem;}
+.brand-img img{width: 100%;}
+.selected-car{padding-left: 2rem;height: 2rem;width: 100%;border-bottom: 1px #c8c7cc solid;}
+.car-serial{line-height: 1.4rem;color: #333333;font-size: 0.44rem;}
+.car-year{color: #999999;font-size: 0.4rem;line-height: 0.8rem;}
+.mui-table-view{top: 2.45rem;}
+
+
+.list-items{margin-top: 2.4rem;background: #ffffff;border-top: 1px #c8c7cc solid;}
+
+.input{height: 0.8rem !important;padding: 0.1rem !important;width: 3rem !important;font-size: 0.44rem;}
+
+.button-red{margin-left: 5%;width: 90%;}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#FC3434">
+		<link rel="stylesheet" href="../../css/common/base.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="css/carAddCommon.css" />
+		<title></title>
+		<script type="text/javascript" src="../../js/common/jquery.js"></script>
+		<script type="text/javascript" src="../../js/common/flexible/flexible.js"></script>
+		<script type="text/javascript" src="../../js/common/tools.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="js/carAddTab06.js"></script>
+	</head>
+
+	<body>
+		<div class="x-panel-top">
+			<div class="x-panel-top-left" onclick="mui.back()">
+				<span class="left-icon"></span>
+			</div>
+			<div class="x-panel-top-center">
+				<div class="x-title-bar">
+					保存车辆（6/6）
+				</div>
+			</div>
+			<div class="x-panel-top-right">
+			</div>
+		</div>
+		<div class="x-panel-content">
+
+			<div class="selected-area">
+				<div class="brand-img">
+					<img src="../../images/obd/obd_vehicle_brand_main_benz.png" />
+				</div>
+				<div class="selected-car">
+					<div class="car-serial height50">
+
+					</div>
+					<div class="car-year height50">
+						
+					</div>
+				</div>
+				<div class="gray-blank10"></div>
+			</div>
+
+			
+			<div class="list-items">
+				<div class="list-item">
+					<div class="item-name" style="background: url(../../images/obd/obd_dt_icon8_1.png) no-repeat left;background-size: 0.7rem;">
+						车牌号
+					</div>
+					<div class="list-right-array bg-none">
+						<div class="list-right-num">
+							<input type="text" class="mui-input-clear input-carno input" placeholder="京P12345"/>
+						</div>
+					</div>
+				</div>
+				<div class="list-item">
+					<div class="item-name" style="background: url(../../images/obd/obd_dt_icon9_1.png) no-repeat left;background-size: 0.7rem;">
+						当前里程
+					</div>
+					<div class="list-right-array bg-none">
+						<div class="list-right-num year">
+								<input type="tel" class="mui-input-clear input-mile input" placeholder="0 km"/>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="gray-blank20"></div>
+			<div class="button-red btn-save">保存</div>
+
+		</div>
+		
+		<div class="pop-up hide">
+			<div class="pop-up-panel pop-up-panel-img">
+				<img src="../../images/loading-car.gif" style="width: 4rem;"/>
+			</div>
+			<div class="pop-up-mask"></div>
+		</div>
+		
+	</body>
+
+</html>

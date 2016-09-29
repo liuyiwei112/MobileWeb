@@ -26,7 +26,7 @@
 					我的车辆
 				</div>
 			</div>
-			<div class="x-panel-top-right" onclick="javascript:_tl.toUrl('main/carList.html')">
+			<div class="x-panel-top-right" onclick="javascript:_tl.toUrl('car/carAddTab01.html')">
 				<span class="mui-icon car-add-icon"></span>
 			</div>
 		</div>
@@ -39,6 +39,7 @@
 			<li class="hide bind-model">
 				<div class="mui-slider-right mui-disabled">
 					<a class="mui-btn mui-btn-red set-defalut">设为默认</a>
+					<a class="mui-btn mui-btn-blue set-mile">更新里程</a>
 				</div>
 				<div class="mui-slider-handle">
 					<div class="mui-table-cell">
@@ -59,7 +60,7 @@
 
 			<li class="hide not-bind-model">
 				<div class="mui-slider-right mui-disabled">
-					<a class="mui-btn mui-btn-red">删除</a>
+					<a class="mui-btn mui-btn-red btn-delete">删除</a>
 					<a class="mui-btn mui-btn-blue">绑定OBD</a>
 				</div>
 				<div class="mui-slider-handle">
@@ -82,10 +83,31 @@
 				<span class="loading-tip-text">正在加载中...</span>
 
 			</div>
+			
+			<div class="pop-up hide">
+				<div class="pop-up-panel">
+					<div class="pop-up-panel-title">
+						修改里程
+						<div class="pop-up-panel-close" onclick="javascript:_tl.hide($('.pop-up'))">
+							<span class="mui-icon mui-icon-closeempty"></span>
+						</div>
+					</div>
+					<div class="pop-up-panel-body">
+						<div class="mui-input-row">
+							<input type="number" class="mui-input-clear input-mile" placeholder="0">
+						</div>
+						<div class="blank5"></div>
+						<div class="button button-red modify-mile">确认</div>
+						
+					</div>
+				</div>
+				<div class="pop-up-mask"></div>
+			</div>
 
 		</div>
 
 		<div class="x-panel-bottom text-center">
+			<div class="gray-blank10"></div>
 				<span class="mui-icon mui-icon-info" style="color: red;"></span>
 				左滑可删除、变更默认车辆
 		</div>

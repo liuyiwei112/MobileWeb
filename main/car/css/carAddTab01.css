@@ -1,0 +1,12 @@
+@import url("../../../css/common/base.css");
+
+.hot-brand{padding: 0.2rem 0.4rem;padding-right: 1rem;}
+.menu-line{margin: 0;}
+.menu-line .menu-item .menu-image{height: 1rem;}
+.menu-line .menu-item .menu-image img{width: 1rem;}
+.menu-line .menu-item .menu-text{line-height: 0.5rem;}
+
+.mui-indexed-list-bar{position: absolute;top: 2.5rem;bottom: 1rem;height: auto !important;}
+.mui-indexed-list-bar a{line-height: 0.6rem;}
+
+.mui-indexed-list-item{background-image: url(../../../images/non-image.png);background-size: 0.7rem; background-position: left;background-repeat:no-repeat ;background-position-x: 0.5rem;font-size: 0.44rem;line-height: 1.3rem;height: 1.3rem;color: #666666;padding: 0;text-indent: 1.5rem;}

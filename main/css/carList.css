@@ -3,8 +3,8 @@
 .brand-img{width: 1.5rem;position: absolute;}
 .brand-img img{width: 100%;}
 
-.mui-table-view{padding-bottom: 0.01rem;background: #f3f3f3;}
-
+.mui-table-view{padding-bottom: 0.01rem;background: #f3f3f3;position: absolute;top: 0;bottom: 1.36rem;width: 100%;overflow-y: auto;}
+.mui-table-view:after{height: 0;}
 .mui-table-view-cell{padding: 0.4rem 0.4rem;background: #ffffff;margin: 0.2rem 0;border-bottom: 1px #e3e3e3 solid;border-top: 1px #e3e3e3 solid;}
 .mui-table-view-cell:after{height: 0;}
 
@@ -17,4 +17,5 @@
 .obd-no{text-align: right;}
 .default-icon{background: url(../../images/default.png) no-repeat left top;background-size: 100%;position: absolute;width: 1.2rem;height: 1.2rem;left: 0;top: 0;}
 
-.x-panel-bottom{text-align: center;font-size: 0.44rem;color: #999999;background: #f1f1f1;}
+.x-panel-bottom{text-align: center;font-size: 0.44rem;color: #999999;background: #ffffff;line-height: 1.1rem;}
+.gray-blank10{background: #f3f3f3;}

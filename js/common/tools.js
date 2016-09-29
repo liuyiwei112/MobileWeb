@@ -86,6 +86,14 @@ function getTLInstance() {
 			}
 			img.src = src;
 		},
+		loadBgImg: function(src, imgObj) {
+			var img = new Image();
+			img.onload = function() {
+				img.onload = null;
+				imgObj.css('backgroundImage', 'url('+src+')');
+			}
+			img.src = src;
+		},
 
 		//日期类公用方法
 		//传参:Date对象;

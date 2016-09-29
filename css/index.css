@@ -57,10 +57,6 @@
 .swiper-pagination-bullet-active{background: #FC3434 !important;}
 .swiper-slide{padding: 0 0.1rem;}
 
-.menu-line{width: 100%;display: flex;flex-direction: row;margin-top: 0.3125rem;}
-.menu-line .menu-item{flex: 1 1 0;text-align: center;}
-.menu-line .menu-item .menu-image{height: 1.8rem;}
-.menu-line .menu-item .menu-image img{width: 1.8rem;}
-.menu-line .menu-item .menu-text{color:#969696 ;font-size: 0.375rem;margin-top: 0.15rem;}
+
 
 
