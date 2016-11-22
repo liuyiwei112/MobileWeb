@@ -4,7 +4,11 @@ var insertedCar = JSON.parse(storage.getItem('insertedCar'));
 var brandId = insertedCar.brandId,
 	brandName = insertedCar.brandName;
 
+
 $(function() {
+	if(mui.os.ios&&mui.os.plus){
+		$('body').addClass('ios-body');
+	}
 	$('.car-serial').html(brandName);
 	_tl.loadImg(insertedCar.brandImg, $('.brand-img').find('img'))
 	var dataUrl = _tl.api + 'huijia/getCrmCarSeriesByBrandId?brandId=' + brandId;

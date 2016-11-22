@@ -1,46 +1,48 @@
 var storage = window.localStorage;
 var _tl = getTLInstance();
-var markerReplay, pointList, pointDList, pointSpList, center, nowLocation = 0,
+var markerReplay, pointList, pointDList, pointSpList, nowLocation = 0,
 	progressBar;
-var carId = storage.getItem('carId');	
+var carId = storage.getItem('carId');
 var params = JSON.parse(storage.getItem('driverTrackParam'));
 var autoEvent;
-$(function() {
 
+mui.plusReady(function() {})
+
+$(function() {
+	if(mui.os.ios&&mui.os.plus) {
+		$('body').addClass('ios-body');
+	}
 	if(params.from == 0) {
 		$('.x-title-bar').html('轨迹分析');
 
 		pointList = eval('(' + storage['driverPointList'] + ')');
 		pointDList = eval('(' + storage['driverDetailPointList'] + ')');
 		pointSpList = eval('(' + storage['driverSpecialPointList'] + ')');
-		center = JSON.parse(storage['driverDetailCenter']);
-		
-		setTimeout(function(){
+
+		setTimeout(function() {
 			_tl.hide($('.loading-tip'));
 			_tl.show($('.x-panel-content'));
 			pageLoad();
-		},500)
+		}, 500)
 	} else {
-		$('.x-title-bar').html('每日足迹(' + params.nowDate + ')');
-//		var dataUrl = require.toUrl('../data/dailyAllTrack.json');
-		var dataUrl = _tl.api+'getSomeDayDetailsDrivingReport?carId='+carId+'&date='+_tl.changeDateF1(params.nowDate);
+		$('.x-title-bar').html('每日足迹(' + params.nowDate.substring(5, params.nowDate.length) + ')');
+		//		var dataUrl = require.toUrl('../data/dailyAllTrack.json');
+		var dataUrl = _tl.api + 'getSomeDayDetailsDrivingReport?carId=' + carId + '&date=' + _tl.changeDateF1(params.nowDate);
 		$.getJSON(dataUrl, function(data) {
 			pointList = _tl.changeLatLng(data[0].pointList);
 			pointDList = data[0].pointDetailsList;
 			pointSpList = data[0].specialPointList;
-			center = _tl.calcenter(pointList);
 			_tl.hide($('.loading-tip'));
 			_tl.show($('.x-panel-content'));
 			pageLoad();
-			
+
 		})
 	}
 
 })
 
-
 function pageLoad() {
-	
+
 	loadGaodeMap();
 	//回放按钮点击事件
 	$('.replay-button').click(function() {
@@ -86,7 +88,7 @@ function pageLoad() {
 		var touches = e.originalEvent.changedTouches[0];
 		changePosition(touches);
 	})
-	
+
 	progressBar = mui('#demo1')
 	mui(progressBar).progressbar({
 		progress: 0
@@ -107,18 +109,20 @@ function changePosition(touches) {
 			var offsetPercent = parseInt(offsetX / maxWidth * 100)
 			var arrayLocation = parseInt(offsetPercent / 100 * pointDList.length);
 			nowLocation = arrayLocation
-			setProgress(offsetPercent, pointDList[arrayLocation]);
-//			$('.a').html(touches.pageX+'@@'+maxWidth+'@@'+offsetPercent);
+			if(pointDList[arrayLocation]) {
+				setProgress(offsetPercent, pointDList[arrayLocation]);
+			}
+			//			$('.a').html(touches.pageX+'@@'+maxWidth+'@@'+offsetPercent);
 		} else {
-			setProgress(100);
+			setProgress(100, pointDList[pointDList.length - 1]);
 		}
 	}
 }
 
 function setProgress(pro, point) {
 	if(pro == -1) {
-//		mui(progressBar).progressbar().setProgress(pro);
-		
+		//		mui(progressBar).progressbar().setProgress(pro);
+
 		var span = document.querySelector('#demo1').querySelector('span');
 		var style = span.style;
 		style.webkitTransform = 'translate3d(' + (-100 + pro) + '%,0,0)';
@@ -128,12 +132,12 @@ function setProgress(pro, point) {
 		nowLocation = 0;
 		clearInterval(autoEvent);
 		$('.replay-button').removeClass('replay-button-stop');
-		$('.progress-point').css('left',pro+'%')
+		$('.progress-point').css('left', pro + '%')
 	} else {
 		markerReplay.show();
 		$('.text-replay-area').removeClass('hide');
-//		mui(progressBar).progressbar().setProgress(pro);
-		
+		//		mui(progressBar).progressbar().setProgress(pro);
+
 		var span = document.querySelector('#demo1').querySelector('span');
 		var style = span.style;
 		style.webkitTransform = 'translate3d(' + (-100 + pro) + '%,0,0)';
@@ -141,9 +145,9 @@ function setProgress(pro, point) {
 		markerReplay.setPosition([point[1], point[0]]);
 		$('.replay-date').html(_tl.getYMD(point[3]) + ' ' + _tl.getHMS(point[3]));
 		$('.replay-speed').html(point[2]);
-		
-		$('.progress-point').css('left',pro-1+'%');
-		
+
+		$('.progress-point').css('left', pro - 1 + '%');
+
 	}
 }
 
@@ -204,7 +208,7 @@ loadGaodeMap = function() {
 			});
 			markerReplay.hide();
 
-			if(pointSpList){
+			if(pointSpList) {
 				//标记特殊点
 				for(var j = 0; j < pointSpList.length; j++) {
 					var icon = {},
@@ -218,20 +222,24 @@ loadGaodeMap = function() {
 							image: '../../images/obd/obd_hxz_health_jia.png'
 						})
 					}
-	
+
 					var specialMarker = new AMap.Marker({
 						position: [spPoint.trackLng, spPoint.trackLat],
 						icon: icon
 					});
 					specialMarker.setMap(mapObj);
-	
+
 				}
 			}
 			mapObj.setFitView();
+		} else {
+			//解决加载了但无法创建地图问题
+			setTimeout(function() {
+				loadGaodeMap();
+			}, 1000)
 		}
 	}
 	oScript.onunload = function() {
 		console.log("amap unload");
-		alert(3);
 	}
 }

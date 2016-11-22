@@ -1,20 +1,25 @@
 var myScroll,
-    pullUpEl, pullUpOffset,
-    generatedCount = 0;
+	pullUpEl, pullUpOffset,
+	generatedCount = 0;
 
 var storage = window.localStorage;
 var session = window.sessionStorage;
 var _tl = getTLInstance();
 var carId = storage.getItem('carId');
-var carAlertParam = JSON.parse(storage.getItem('carAlertParam')) ;
+var carAlertParam = JSON.parse(storage.getItem('carAlertParam'));
 
-$(function(){
+mui.plusReady(function() {})
+
+$(function() {
+	if(mui.os.ios&&mui.os.plus) {
+		$('body').addClass('ios-body');
+	}
 	var readData2 = session.getItem('readData');
-	var notReadUrl = _tl.api+'alerm/alermDetail?carId='+carId+'&alermType='+carAlertParam.alermType;
+	var notReadUrl = _tl.api + 'alerm/alermDetail?carId=' + carId + '&alermType=' + carAlertParam.alermType;
 	$('.x-title-bar').html(carAlertParam.alermName);
-	
+
 	$.when(
-		getNotRead(_tl,notReadUrl),pullUpAction()
+		getNotRead(_tl, notReadUrl), pullUpAction()
 	).done(
 		addItemEvent()
 	)
@@ -26,13 +31,13 @@ function addItemEvent() {
 		if(!$(this).hasClass('tap-checked')) {
 			$('.has-read').removeClass('tap-checked');
 			$(this).addClass('tap-checked');
-			
-			if($('.car-alert-not-read-list').html()){
+
+			if($('.car-alert-not-read-list').html()) {
 				$('.error-tip').addClass('hide');
-			}else{
+			} else {
 				$('.error-tip').removeClass('hide');
 			}
-			
+
 			$('.car-alert-read-list').addClass('hide');
 			$('.car-alert-not-read-list').removeClass('hide');
 		}
@@ -41,13 +46,13 @@ function addItemEvent() {
 		if(!$(this).hasClass('tap-checked')) {
 			$('.not-read').removeClass('tap-checked');
 			$(this).addClass('tap-checked');
-			
-			if($('.car-alert-read-list').html()){
+
+			if($('.car-alert-read-list').html()) {
 				$('.error-tip').addClass('hide');
-			}else{
+			} else {
 				$('.error-tip').removeClass('hide');
 			}
-			
+
 			$('.car-alert-read-list').removeClass('hide');
 			$('.car-alert-not-read-list').addClass('hide');
 		}
@@ -56,57 +61,60 @@ function addItemEvent() {
 }
 
 function loaded() {
-    pullUpEl = document.getElementById('pullUp');  
-    pullUpOffset = pullUpEl.offsetHeight;
-     
-    myScroll = new iScroll('wrapper', {
-        scrollbarClass: 'myScrollbar',
-        useTransition: false,
-        hScroll:false,
-        hScrollbar:false,
-        onRefresh: function () {
-            if (pullUpEl.className.match('loading')) {
-                pullUpEl.className = '';
-                if(isLoadAll){
-                		pullUpEl.querySelector('.pullUpLabel').innerHTML = '已加载全部数据';
-                }else{
-	                pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
-                }
-            }
-        },
-        onScrollMove: function () {
-            if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
-                pullUpEl.className = 'flip';
-                pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
-                this.maxScrollY = this.maxScrollY;
-            } else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
-                pullUpEl.className = '';
-                pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
-                this.maxScrollY = pullUpOffset;
-            }
-        },
-        onScrollEnd: function () {
-        		if(!isLoadAll){
-	            pullUpEl.className = 'loading';
-	            pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';               
-	            pullUpAction(); // ajax call
-        		}else{
-        			pullUpEl.className = '';
-        			pullUpEl.querySelector('.pullUpLabel').innerHTML = '已加载全部数据';
-        		}
-        }
-    });
-     
-    setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800);
+	pullUpEl = document.getElementById('pullUp');
+	pullUpOffset = pullUpEl.offsetHeight;
+
+	myScroll = new iScroll('wrapper', {
+		scrollbarClass: 'myScrollbar',
+		useTransition: false,
+		hScroll: false,
+		hScrollbar: false,
+		onRefresh: function() {
+			if(pullUpEl.className.match('loading')) {
+				pullUpEl.className = '';
+				if(isLoadAll) {
+					pullUpEl.querySelector('.pullUpLabel').innerHTML = '已加载全部数据';
+				} else {
+					pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+				}
+			}
+		},
+		onScrollMove: function() {
+			if(this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+				pullUpEl.className = 'flip';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
+				this.maxScrollY = this.maxScrollY;
+			} else if(this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+				pullUpEl.className = '';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+				this.maxScrollY = pullUpOffset;
+			}
+		},
+		onScrollEnd: function() {
+			if(!isLoadAll) {
+				pullUpEl.className = 'loading';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';
+				pullUpAction(); // ajax call
+			} else {
+				pullUpEl.className = '';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = '已加载全部数据';
+			}
+		}
+	});
+
+	setTimeout(function() {
+		document.getElementById('wrapper').style.left = '0';
+	}, 800);
 }
 
-var pageIndex = 0,isLoadAll = false;
+var pageIndex = 0,
+	isLoadAll = false;
 /**
  * 滚动翻页 （自定义实现此方法）
  * myScroll.refresh();      // 数据加载完成后，调用界面更新方法
  */
-function pullUpAction () {
-    setTimeout(function () {    // <-- Simulate network congestion, remove setTimeout from production!
+function pullUpAction() {
+	setTimeout(function() { // <-- Simulate network congestion, remove setTimeout from production!
 		var readUrl = _tl.api + 'alerm/alermHistory?carId=' + carId + '&alermType=' + carAlertParam.alermType + '&page=' + pageIndex + '&size=10';
 		$.getJSON(readUrl, function(data) {
 			var content = data.content;
@@ -124,41 +132,37 @@ function pullUpAction () {
 					$('.car-alert-read-list .car-alert-detail:last .alert-date').html(_tl.getYMD(content[i].alermTime) + ' ' + _tl.getHMS(content[i].alermTime));
 				}
 				$('.car-alert-detail').on('click', function() {
-					var alertSerial = $(this).find('.alert-serial').val();
-					var params = readData[alertSerial];
-					storage.setItem('alertDetail', JSON.stringify(params));
-					//history.pushState({ readData: readData }, 'carAlertRead', "?goDetail=1");
-					session.setItem('readData',JSON.stringify(readData));
-					_tl.toUrl("carAlertDetail.html");
-				})
-//				mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+						var alertSerial = $(this).find('.alert-serial').val();
+						var params = readData[alertSerial];
+						storage.setItem('alertDetail', JSON.stringify(params));
+						//history.pushState({ readData: readData }, 'carAlertRead', "?goDetail=1");
+						session.setItem('readData', JSON.stringify(readData));
+						_tl.toUrl("carAlertDetail.html");
+					})
+					//				mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
 				pageIndex++;
 				myScroll.refresh();
 			}
 		})
-    }, 1000);  
+	}, 1000);
 }
 
-window.onpopstate = function(event) {
- alert("location: " + document.location + ", state: " +   JSON.stringify(event.state));
-};
-
-
 //初始化绑定iScroll控件
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+document.addEventListener('touchmove', function(e) {
+	e.preventDefault();
+}, false);
 document.addEventListener('DOMContentLoaded', loaded, false);
-
 
 var notReadData = {},
 	readData = {}
 
-function getNotRead(_tl,apiUrl) {
-//	var dataUrl = require.toUrl('../../data/obd/carAlertNotRead.json');
+function getNotRead(_tl, apiUrl) {
+	//	var dataUrl = require.toUrl('../../data/obd/carAlertNotRead.json');
 	$.getJSON(apiUrl, function(data) {
 		$('.car-alert-not-read-list').html('');
-		if(data.length==0){
+		if(data.length == 0) {
 			$('.error-tip').removeClass('hide');
-		}else{
+		} else {
 			$('.error-tip').addClass('hide');
 		}
 		var alertNotReadModel = '<div class="car-alert-detail">' + $('.car-alert-not-read-detail-model').html() + '</div>';

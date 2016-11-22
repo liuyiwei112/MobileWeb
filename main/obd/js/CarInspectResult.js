@@ -6,15 +6,17 @@ mui.plusReady(function() {
 	mui.init({
 		beforeback: function() {
 			var wobj = plus.webview.getWebviewById("index");
-//			wobj.reload(true);
-			mui.fire(wobj, 'refresh');  
+			//			wobj.reload(true);
+			mui.fire(wobj, 'refresh');
 			return true;
 		}
 	})
 })
 
 $(function() {
-
+	if(mui.os.ios&&mui.os.plus) {
+		$('body').addClass('ios-body');
+	}
 	if(inspectResult) {
 		_tl.show($('.x-panel-checked'));
 		_tl.hide($('.x-panel-not-check'));
@@ -39,12 +41,20 @@ $(function() {
 				$('.inspect-error-items .list-item:last').find('.inspect-error').html(inspectFault[i].faultCode);
 				$('.inspect-error-items .list-item:last').attr('faultId', inspectFault[i].faultId);
 				$('.inspect-error-items .list-item:last').attr('faultCode', inspectFault[i].faultCode);
+				$('.inspect-error-items .list-item:last').attr('longitude', inspectFault[i].longitude);
+				$('.inspect-error-items .list-item:last').attr('latitude', inspectFault[i].latitude);
+				$('.inspect-error-items .list-item:last').attr('faultAddress', inspectFault[i].faultAddress);
+				$('.inspect-error-items .list-item:last').attr('checkTime', inspectFault[i].checkTime);
 			}
 
 			$('.inspect-error-items .list-item').on('tap', function() {
 				var param = {
 					'faultId': $(this).attr('faultId'),
-					'faultCode': $(this).attr('faultCode')
+					'faultCode': $(this).attr('faultCode'),
+					'longitude': $(this).attr('longitude'),
+					'latitude': $(this).attr('latitude'),
+					'faultAddress': $(this).attr('faultAddress'),
+					'checkTime': $(this).attr('checkTime')
 				};
 				storage.setItem('faultDetail', JSON.stringify(param));
 				_tl.toUrl('CarInspectFaultDetail.html');

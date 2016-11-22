@@ -8,3 +8,8 @@
 .common-title2 .common-title2-marker{width: 3%;background: #fc3434;height:0.5rem;float:left;margin-top:0.15rem}
 .common-title2 .common-title2-text{color:#333333;height:100%;float:left;width:95%;padding-left: 3%;font-size: 0.44rem}
 .normal-text{color: #666666;padding:0.3rem 0;margin-bottom: 0.1rem;padding-left: 0.85rem;font-size: 0.42rem;line-height: 0.7rem;padding-right: 0.5rem;}
+
+.fault-map-container{margin-top: 0.2rem;}
+.fault-map{width: 100%;height: 7rem;}
+.loading-tip{top: 1rem;position: relative;}
+div.amap-info-content{margin-bottom: 0.45rem;}

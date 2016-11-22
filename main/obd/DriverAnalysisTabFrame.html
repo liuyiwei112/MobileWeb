@@ -13,11 +13,13 @@
 
 		<script type="text/javascript" src="../../js/common/jquery.js"></script>
 		<script type="text/javascript" src="../../js/common/flexible/flexible.js"></script>
-		<script type="text/javascript" src="../../js/common/tools.js" ></script>
+		<script type="text/javascript" src="../../js/common/tools.js"></script>
 		<script type="text/javascript" src="../../js/common/swiper/js/swiper.min.js"></script>
 		<script type="text/javascript" src="../../js/mui.min.js"></script>
 		<style>
-			.swiper-slide{min-height: 16.5rem;}
+			.swiper-slide {
+				min-height: 16.5rem;
+			}
 		</style>
 	</head>
 
@@ -53,39 +55,54 @@
 		</div>
 
 		<script>
-			
-			var pageList = ['DriverAnalysisTab01.html','DriverAnalysisTab02.html','DriverAnalysisTab03.html']
+			mui.plusReady(function() {
+				mui.init({
+					beforeback: function() {
+						var wobj = plus.webview.getWebviewById("index");
+						mui.fire(wobj, 'initParam');
+						return true;
+					}
+				})
+			})
+
+			var pageList = ['DriverAnalysisTab01.html', 'DriverAnalysisTab02.html', 'DriverAnalysisTab03.html']
 			var pageContent = [];
-			$(function(){
-				getPage(0,function(){
-					getPage(1,function(){
-						getPage(2,function(){
-							initSwiper()	
+			$(function() {
+				getPage(0, function() {
+					getPage(1, function() {
+						getPage(2, function() {
+							initSwiper()
 						})
 					})
 				})
 			})
-			function getPage(i,_callback){
-				$.get(pageList[i],function(text){
-					$('.swiper-wrapper').append('<div class="swiper-slide">'+text+'</div>');
+
+			function getPage(i, _callback) {
+				$.get(pageList[i], function(text) {
+					$('.swiper-wrapper').append('<div class="swiper-slide">' + text + '</div>');
 					_callback();
 				})
 			}
-			function initSwiper(){
+
+			function initSwiper() {
 				var menu_swiper = new Swiper('.swiper-container', {
 					paginationClickable: false,
-					onSlideChangeEnd:changeTab
+					onSlideChangeEnd: changeTab
 				});
-				$('.driver-tab').click(function(){
+				$('.driver-tab').click(function() {
 					var index = $('.driver-tab').index(this);
 					menu_swiper.slideTo(index, 500, false);
 					$('.driver-analysis-tab .active').removeClass('active');
 					$(this).addClass('active');
 				})
 			}
-			function changeTab(swiper){
+
+			function changeTab(swiper) {
 				$('.driver-tab').removeClass('active')
-				$('.driver-tab:eq('+swiper.activeIndex+')').addClass('active');
+				$('.driver-tab:eq(' + swiper.activeIndex + ')').addClass('active');
+			}
+			if(mui.os.ios&&mui.os.plus) {
+				$('body').addClass('ios-body');
 			}
 		</script>
 

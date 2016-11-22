@@ -2,19 +2,17 @@ var storage = window.localStorage;
 var _tl = getTLInstance();
 var carId = storage.getItem('carId');
 var mapUrlParam = JSON.parse(storage.getItem('mapUrlParam'));
-var mapObj, circle, center, placeSearch, swiper, sKey, nowIndex, _plus,initRadius = 3000;
+var mapObj, circle, center, placeSearch, swiper, sKey, nowIndex, initRadius = 3000;
 var markerArray = [];
 
-mui.plusReady(function() {
-	_plus = plus;
-})
-
 $(function() {
-
+	if(mui.os.ios&&mui.os.plus) {
+		$('body').addClass('ios-body');
+	}
 	var title = mapUrlParam.title;
-	if(title.indexOf('加油')>-1) {
+	if(title.indexOf('加油') > -1) {
 		sKey = '加油站';
-	} else if(title.indexOf('停车')>-1) {
+	} else if(title.indexOf('停车') > -1) {
 		sKey = '停车场';
 		initRadius = 1000;
 	}
@@ -26,6 +24,15 @@ $(function() {
 		}
 	});
 
+	loadMap();
+
+	$('.distance-area span').on('tap', function() {
+		setRadiusButton($(this).attr('mile'));
+	})
+
+});
+
+function loadMap() {
 	//动态加载地图
 	var oHead = document.getElementsByTagName('HEAD').item(0);
 	var oScript = document.createElement("script");
@@ -62,7 +69,7 @@ $(function() {
 					panToLocation: true, //定位成功后将定位到的位置作为地图中心点，默认：true
 					zoomToAccuracy: false //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
 				});
-				mapObj.addControl(geolocation);
+				//				mapObj.addControl(geolocation);
 				AMap.event.addListener(geolocation, 'complete', onComplete); //返回定位信息
 				AMap.event.addListener(geolocation, 'error', onError); //返回定位出错信息
 			})
@@ -96,18 +103,17 @@ $(function() {
 					geolocation.getCurrentPosition();
 				}
 			})
+		} else {
+			setTimeout(function() {
+				loadMap()
+			}, 1000);
 		}
 	}
+}
 
-	$('.distance-area span').on('tap', function() {
-		setRadius($(this).attr('mile'));
-	})
-
-});
-
-function setRadiusButton(_radius){
+function setRadiusButton(_radius) {
 	$('.distance-area .check').removeClass('check');
-	$('.distance-area span[mile="'+_radius+'"]').addClass('check');
+	$('.distance-area span[mile="' + _radius + '"]').addClass('check');
 	circle.setRadius(_radius);
 	doSearch(_radius);
 }
@@ -115,7 +121,7 @@ function setRadiusButton(_radius){
 //定位成功或者查询上次坐标点成功
 function onComplete(e) {
 	center = e.position;
-	
+
 	var marker = new AMap.Marker({
 		position: e.position,
 		icon: new AMap.Icon({
@@ -133,7 +139,7 @@ function onComplete(e) {
 		fillOpacity: 0
 	});
 	circle.setMap(mapObj);
-	
+
 	setRadiusButton(initRadius);
 
 }
@@ -147,8 +153,6 @@ function doSearch(distance) {
 	//关键字查询
 	mapObj.remove(markerArray);
 	markerArray.splice(0, markerArray.length);;
-	placeSearch.clear();
-
 	//POI搜索及marker展示
 	placeSearch.searchNearBy(sKey, center, distance, function(status, result) {
 		placeSearch.clear();
@@ -163,6 +167,14 @@ function doSearch(distance) {
 			if(poiList[i].tel) {
 				$('.swiper-slide:last').find('.poi-tel').html(poiList[i].tel);
 			}
+			$('.swiper-slide:last').find('.tel-phone').on('tap', function(e) {
+				var phone = $(this).parent().prev().html();
+				if(phone != '暂无联系方式') {
+					_tl.phone(phone.replace('-', ''));
+				} else {
+					mui.toast('该商家暂无联系方式');
+				}
+			})
 			$('.swiper-slide:last').find('.poi-button-go').html('到这去(' + _tl.toKm(poiList[i].distance) + ')');
 
 			var markContent = '<div class="amap-icon marker-not-check">' + (i + 1) + '</div>';
@@ -202,35 +214,68 @@ function doRouterDesign() {
 	var des = markerArray[nowIndex].getPosition();
 	var extra = markerArray[nowIndex].extData;
 	var start = '我的位置';
-	if(_plus) {
-		if(mui.os.plus) {
-			//判断用户是否已经安装 高德 或者 百度地图
-			var UIApplication = plus.ios.importClass("UIApplication");
-			var NSURL = plus.ios.importClass("NSURL");
-			var app = UIApplication.sharedApplication();
-			var gdSchemeInspect = NSURL.URLWithString("iosamap://");
-			var bdSchemeInspect = NSURL.URLWithString("baidumap://")
-			var gdInstall = app.canOpenURL(gdSchemeInspect);
-			var bdInstall = app.canOpenURL(bdSchemeInspect);
+	if(mui.os.ios&&mui.os.plus) {
+		//判断用户是否已经安装 高德 或者 百度地图
+		var UIApplication = plus.ios.importClass("UIApplication");
+		var NSURL = plus.ios.importClass("NSURL");
+		var app = UIApplication.sharedApplication();
+		var gdSchemeInspect = NSURL.URLWithString("iosamap://");
+		var bdSchemeInspect = NSURL.URLWithString("baidumap://")
+		var gdInstall = app.canOpenURL(gdSchemeInspect);
+		var bdInstall = app.canOpenURL(bdSchemeInspect);
 
-			if(gdInstall == 1) {
-				var gdScheme = NSURL.URLWithString("iosamap://path?sourceApplication=applicationName&sid=BGVIS1&slat=" + center.getLat() + "&slon=" + center.getLng() + "&sname=" + encodeURIComponent(start) + "&did=BGVIS2&dlat=" + des.getLat() + "&dlon=" + des.getLng() + "&dname=" + encodeURIComponent(extra.poiName) + "&dev=0&m=0&t=0");
-				app.openURL(gdScheme);
-				return;
-			} else if(bdInstall == 1) {
-				var bdCenter = _tl.bd_decrypt(center.getLat(), center.getLng());
-				var dbDes = _tl.bd_decrypt(des.getLat(), des.getLng());
-				var url = "baidumap://map/direction?origin=" + bdCenter[0] + "," + bdCenter[1] + "&destination=" + dbDes[0] + "," + dbDes[1] + "&mode=driving";
-				var bdScheme = NSURL.URLWithString(url);
-				app.openURL(bdScheme);
-				return;
+		if(gdInstall == 1) {
+			var gdScheme = NSURL.URLWithString("iosamap://path?sourceApplication=applicationName&sid=BGVIS1&slat=" + center.getLat() + "&slon=" + center.getLng() + "&sname=" + encodeURIComponent(start) + "&did=BGVIS2&dlat=" + des.getLat() + "&dlon=" + des.getLng() + "&dname=" + encodeURIComponent(extra.poiName) + "&dev=0&m=0&t=0");
+			app.openURL(gdScheme);
+			return;
+		} else if(bdInstall == 1) {
+			var bdCenter = _tl.bd_decrypt(center.getLat(), center.getLng());
+			var dbDes = _tl.bd_decrypt(des.getLat(), des.getLng());
+			var url = "baidumap://map/direction?origin=" + bdCenter[0] + "," + bdCenter[1] + "&destination=" + dbDes[0] + "," + dbDes[1] + "&mode=driving";
+			var bdScheme = NSURL.URLWithString(url);
+			app.openURL(bdScheme);
+			return;
+		} else {
+			mui.alert('检测到您尚未安装高德或者百度地图');
+		}
+	} else if(mui.os.android&&mui.os.plus) {
+		var main = plus.android.runtimeMainActivity();
+		var packageManager = main.getPackageManager();
+		var PackageManager = plus.android.importClass(packageManager);
+		var bdName = 'com.baidu.BaiduMap';
+		var gdName = 'com.autonavi.minimap';
+		try {
+			var context = main.getContext();
+			var Intent = plus.android.importClass("android.content.Intent");
+			if(packageManager.getPackageInfo(gdName, PackageManager.GET_ACTIVITIES)) {
+//				var _url = "androidamap://navi?sourceApplication=siovpoiname="+encodeURIComponent(extra.poiName)+"&lat="+des.getLat()+"&lon="+des.getLng()+"&dev=0";
+				var _url = "androidamap://path?sourceApplication=applicationName&sid=BGVIS1&slat=" + center.getLat() + "&slon=" + center.getLng() + "&sname=" + encodeURIComponent(start) + "&did=BGVIS2&dlat=" + des.getLat() + "&dlon=" + des.getLng() + "&dname=" + encodeURIComponent(extra.poiName) + "&dev=0&m=0&t=0";
+				intent = Intent.getIntent(_url);
+                context.startActivity(intent);
 			} else {
+
+			}
+		} catch(e) {
+			try {
+				if(packageManager.getPackageInfo(bdName, PackageManager.GET_ACTIVITIES)) {
+					var bdCenter = _tl.bd_decrypt(center.getLat(), center.getLng());
+					var dbDes = _tl.bd_decrypt(des.getLat(), des.getLng());
+					var main = plus.android.runtimeMainActivity();
+					var _url = "intent://map/direction?" +
+						"origin=latlng:" + bdCenter[0] + "," + bdCenter[1]+"|name:"+encodeURIComponent(start)+   //起点  此处不传值默认选择当前位置
+						"&destination=latlng:" + dbDes[0] + "," + dbDes[1]+"|name:"+encodeURIComponent(extra.poiName)+ //终点
+						"&mode=driving" + //导航路线方式
+						"&src=siov#Intent;scheme=bdapp;package=com.baidu.BaiduMap;end";
+					var intent = Intent.getIntent(_url);
+					context.startActivity(intent); //启动调用
+				} else {
+					mui.alert('检测到您尚未安装高德或者百度地图');
+				}
+			} catch(e) {
 				mui.alert('检测到您尚未安装高德或者百度地图');
 			}
-		} else {
-			alert('android');
 		}
 	} else {
-		mui.alert('PC端暂不支持路径规划导航，请使用手机');
+		mui.alert('Web端暂不支持路径规划导航，请使用APP');
 	}
 }

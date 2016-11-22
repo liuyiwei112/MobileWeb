@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#fc3434">
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="css/DriverAnalysisTotalChart.css" />
+		<title></title>
+		<script type="text/javascript" src="../../js/common/jquery.js"></script>
+		<script type="text/javascript" src="../../js/common/flexible/flexible.js"></script>
+		<script type="text/javascript" src="../../js/common/tools.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/common/echarts.min-2.js" ></script>
+		<script type="text/javascript" src="js/DriverAnalysisTotalChart.js" ></script>
+	</head>
+	<body>
+		<div class="x-panel-top">
+			<div class="x-panel-top-left" onclick="mui.back()">
+				<span class="left-icon"></span>
+			</div>
+			<div class="x-panel-top-center">
+				<div class="x-title-bar">
+					驾驶统计
+				</div>
+			</div>
+			<div class="x-panel-top-right">
+			</div>
+		</div>
+		<div class="x-panel-content">
+			<div class="top-tap">
+				<div class="tap-not-checked tap-checked" onclick="querySummary(0)">最近6月</div>
+				<div class="tap-not-checked" onclick="querySummary(1)">最近6周</div>
+			</div>
+			<div style="margin-top: 1.2rem;">
+				<div class="chart-panel">
+					<div class="chart-title">总里程分析<label class="unit">km</label></div>
+					<div class="chart" id="mileChart" style="width: 100%;height: 5rem;"></div>
+				</div>
+				<div class="gray-blank10"></div>
+				<div class="chart-panel">
+					<div class="chart-title">总时长分析<label class="unit">h</label></div>
+					<div class="chart" id="timeChart" style="width: 100%;height: 5rem;"></div>
+				</div>
+				<div class="gray-blank10"></div>
+				<div class="chart-panel">
+					<div class="chart-title">总油耗分析<label class="unit">L</label></div>
+					<div class="chart" id="oilChart" style="width: 100%;height: 5rem;"></div>
+				</div>
+				<div class="gray-blank10"></div>
+				<div class="chart-panel">
+					<div class="chart-title">三急统计</div>
+					<div class="chart" id="sharpChart" style="width: 100%;height: 5rem;"></div>
+				</div>
+				<div class="gray-blank10"></div>
+			</div>
+		</div>
+		
+	</body>
+</html>

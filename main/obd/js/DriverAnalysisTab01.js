@@ -1,6 +1,8 @@
 var storage = window.localStorage;
 var _tl = getTLInstance();
 var tripSerial = storage.getItem('tripSerial');
+var pointList,detailPointList,specialPointList;
+
 
 $(function() {
 	loadData();
@@ -27,8 +29,11 @@ function loadData() {
 		$('.driver-overspeed-text').html(data.overspeedTime);
 
 		//地图
+		pointList = _tl.changeLatLng(data.pointList);
+		detailPointList = data.pointDetailsList;
+		specialPointList = data.specialPointList;
 
-		loadGaodeMap(_tl.changeLatLng(data.pointList), data.pointDetailsList, data.specialPointList);
+		loadGaodeMap();
 
 		//底部常规数据
 		$('.driver-data-text1').html(data.driverTime);
@@ -42,7 +47,7 @@ function loadData() {
 
 }
 
-loadGaodeMap = function(pointList, detailPointList, specialPointList) {
+loadGaodeMap = function() {
 	//动态加载地图
 	var oHead = document.getElementsByTagName('HEAD').item(0);
 	var oScript = document.createElement("script");
@@ -53,14 +58,11 @@ loadGaodeMap = function(pointList, detailPointList, specialPointList) {
 		console.log("amap loaded");
 		if(window.AMap && window.AMap.Map) {
 			_tl.hide($('.loading-tip'));
-			//获取中心点
-			var center = _tl.calcenter(pointList);
-
+			console.log("amap init");
 			//将数据存入本地缓存
 			var storage = window.localStorage;
 			storage['driverPointList'] = JSON.stringify(pointList);
 			storage['driverDetailPointList'] = JSON.stringify(detailPointList);
-			storage['driverDetailCenter'] = JSON.stringify(center);
 			storage['driverSpecialPointList'] = JSON.stringify(specialPointList);
 
 			var mapObj = new AMap.Map('driver_map_container', {
@@ -116,10 +118,14 @@ loadGaodeMap = function(pointList, detailPointList, specialPointList) {
 				}
 			}
 			mapObj.setFitView();
+		}else{
+			//解决加载了但无法创建地图问题
+			setTimeout(function(){
+				loadGaodeMap();
+			},1000)
 		}
 	}
 	oScript.onunload = function(){
 		console.log("amap unload");
-		alert(3);
 	}
 }

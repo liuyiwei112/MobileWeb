@@ -3,14 +3,13 @@ var _tl = getTLInstance();
 var carId = storage.getItem('carId') + '';
 var isRefresh = false;
 
+
 mui.plusReady(function() {
-	
-	alert(plus.webview.all().length);
 	
 	mui.init({
 		beforeback: function() {
 			if(isRefresh){
-				var wobj = plus.webview.getWebviewById("main/obd/CarInspectResult.html");
+				var wobj = plus.webview.getWebviewById("obd/CarInspectResult.html");
 				wobj.reload();
 			}
 			return true;
@@ -19,6 +18,9 @@ mui.plusReady(function() {
 })
 
 $(function() {
+	if(mui.os.ios&&mui.os.plus) {
+		$('body').addClass('ios-body');
+	}
 	setTimeout(function(){
 		_tl.turnARImg($('.inspect-check-point'), 1500);
 		getFaultList();

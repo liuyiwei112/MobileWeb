@@ -1,9 +1,23 @@
 var storage = window.localStorage;
 var _tl = getTLInstance();
 var carId = storage.getItem('carId');
+
+mui.plusReady(function() {
+	mui.init({
+		beforeback: function() {
+			var wobj = plus.webview.getWebviewById("index");
+			mui.fire(wobj, 'initParam');  
+			return true;
+		}
+	})
+})
+
 $(function() {
-//	var dataUrl = '../../data/obd/carAlert.json';
-	var dataUrl = _tl.api+'alerm/alermCount?carId='+carId;
+	if(mui.os.ios&&mui.os.plus){
+		$('body').addClass('ios-body');
+	}
+	//	var dataUrl = '../../data/obd/carAlert.json';
+	var dataUrl = _tl.api + 'alerm/alermCount?carId=' + carId;
 	$.getJSON(dataUrl, function(data) {
 		//objData.loadData(data);
 		//alert(data);
@@ -22,16 +36,17 @@ $(function() {
 			}
 		}
 
-		$('.car-alert-item').on('click',function(){
+		$('.car-alert-item').on('click', function() {
 			var alertType = $(this).find('.alert-type').val();
 			var alertName = $(this).find('.alert-name').html();
 			var params = {
-				alermType : alertType,
-				alermName : alertName
+				alermType: alertType,
+				alermName: alertName
 			}
-			storage.setItem("carAlertParam",JSON.stringify(params));
+			storage.setItem("carAlertParam", JSON.stringify(params));
 			_tl.toUrl("carAlertList.html");
 		})
 
 	});
 })
+

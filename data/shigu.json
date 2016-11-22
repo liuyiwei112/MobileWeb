@@ -1,0 +1,92 @@
+{
+	"bx": [
+		{
+			"img": "bx101.jpg",
+			"text": "两车正前方"
+		}, {
+			"img": "bx102.jpg",
+			"text": "两车正后方"
+		}, {
+			"img": "bx103.jpg",
+			"text": "交强险保单"
+		}, {
+			"img": "bx104.jpg",
+			"text": "驾驶证"
+		}, {
+			"img": "bx105.jpg",
+			"text": "行驶证"
+		}, {
+			"img": "bx106.jpg",
+			"text": "碰撞点"
+		}, {
+			"img": "bx107.jpg",
+			"text": "受损情况"
+		}
+	],
+	"zw": [
+		{
+			"img": "zw101.jpg",
+			"text": "车头45度"
+		}, {
+			"img": "zw102.jpg",
+			"text": "车尾45度"
+		}, {
+			"img": "zw103.jpg",
+			"text": "交强险保单"
+		}, {
+			"img": "zw104.jpg",
+			"text": "驾驶证"
+		}, {
+			"img": "zw105.jpg",
+			"text": "行驶证"
+		}, {
+			"img": "zw106.jpg",
+			"text": "碰撞点"
+		}, {
+			"img": "zw107.jpg",
+			"text": "受损情况"
+		}
+	],
+	"qt": [
+		{
+			"img": "qt101.jpg",
+			"text": "两车前方"
+		}, {
+			"img": "qt102.jpg",
+			"text": "两车右侧"
+		}, {
+			"img": "qt103.jpg",
+			"text": "两车后方"
+		}, {
+			"img": "qt104.jpg",
+			"text": "两车左侧"
+		}, {
+			"img": "qt105.jpg",
+			"text": "有障碍物"
+		}, {
+			"img": "qt106.jpg",
+			"text": "上下坡"
+		}, {
+			"img": "qt107.jpg",
+			"text": "逆行"
+		}, {
+			"img": "qt108.jpg",
+			"text": "更多"
+		}, {
+			"img": "qt109.jpg",
+			"text": "碰撞点"
+		}, {
+			"img": "qt110.jpg",
+			"text": "受损情况"
+		}, {
+			"img": "qt111.jpg",
+			"text": "交强险保单"
+		}, {
+			"img": "qt112.jpg",
+			"text": "驾驶证"
+		}, {
+			"img": "qt113.jpg",
+			"text": "行驶证"
+		}
+	]
+}

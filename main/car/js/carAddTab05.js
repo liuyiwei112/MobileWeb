@@ -9,6 +9,9 @@ var seriesId = insertedCar.seriesId,
 var sweptVolumeStr = sweptVolume;
 
 $(function() {
+	if(mui.os.ios&&mui.os.plus){
+		$('body').addClass('ios-body');
+	}
 	$('.car-serial').html(brandName + '—' + seriesName);
 	if(sweptVolumeStr.indexOf('T') == -1) {
 		sweptVolumeStr = sweptVolume + 'L';

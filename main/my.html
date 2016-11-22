@@ -75,13 +75,11 @@
 			storage = window.localStorage;
 			var userInfo = JSON.parse(storage.getItem('userInfo'));
 			var defaultCar = JSON.parse(storage.getItem('defaultCar'));
-			var _plus;
-
-			mui.plusReady(function() {
-				_plus = plus;
-			})
 
 			$(function() {
+				if(mui.os.ios&&mui.os.plus) {
+					$('body').addClass('ios-body');
+				}
 				$('.user').html(userInfo.userName);
 				$('.mobile').html(userInfo.mobile);
 				$('.obd-no').html(defaultCar.terminalId);
@@ -89,13 +87,7 @@
 				//登出时删除存储的用户信息
 				$('.logout').on('tap', function() {
 					storage.removeItem('userInfo');
-					if(_plus) {
-						var view = plus.webview.all();
-						for(var i = 0; i < view.length; i++) {
-							plus.webview.close(view[i]);
-						}
-					}
-					_tl.toUrl('../login.html');
+					_tl.toUrl('login.html');
 				})
 
 			})

@@ -1,0 +1,14 @@
+@import url("../../css/common/base.css");
+
+.x-panel-content{background:url(../../images/loginbg.png) no-repeat ;background-size: 100%;margin: 0;}
+.icon-area{position: absolute;width: 100%;height: 4rem;left: 0rem;top: 2rem;text-align: center;}
+.login-icon{background: url(../../images/icon.png) no-repeat center;background-size: 2rem;height: 2rem;}
+.login-com-name{background: url(../../images/login_com_name.png) no-repeat center;background-size: 8rem;height: 2rem;}
+.input-area{position: absolute;top: 6rem;width: 90%;left: 5%;padding: 0.5rem;border-radius: 0.2rem;}
+.login-tip-text{line-height: 1rem;text-align: center;color: #ffffff;font-size: 0.4rem;height: 1rem;}
+.bd-left1{border-left-color: #ffffff;}
+.pop-up-panel{top: 6rem;}
+.input-error::-webkit-input-placeholder{color: #fc3434;}
+.input-error:-moz-placeholder{color: #fc3434;}
+.input-error::-moz-placeholder{color: #fc3434;}
+.input-error:-ms-input-placeholder{color: #fc3434;}

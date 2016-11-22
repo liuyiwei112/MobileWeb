@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#FC3434">
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/mui/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../css/mui/mui.poppicker.css" />
+		<link rel="stylesheet" href="css/shiguTakeMain.css" />
+		<title></title>
+		<script type="text/javascript" src="../../js/common/jquery.js"></script>
+		<script type="text/javascript" src="../../js/common/flexible/flexible.js"></script>
+		<script type="text/javascript" src="../../js/common/tools.js"></script>
+		<script type="text/javascript" src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/mui/mui.picker.js"></script>
+		<script type="text/javascript" src="../../js/mui/mui.poppicker.js"></script>
+		<script type="text/javascript" src="../../js/mui/mui.previewimage.js"></script>
+		<script type="text/javascript" src="../../js/mui/mui.zoom.js"></script>
+		<script type="text/javascript" src="js/shiguTakeMain.js"></script>
+		
+		<style type="text/css">
+			
+		</style>
+		
+	</head>
+
+	<body>
+		<div class="x-panel-top">
+			<div class="x-panel-top-left" onclick="mui.back()">
+				<span class="left-icon"></span>
+			</div>
+			<div class="x-panel-top-center">
+				<div class="x-title-bar">
+					事故拍照
+				</div>
+			</div>
+			<div class="x-panel-top-right">
+			</div>
+		</div>
+		<div class="x-panel-content">
+			<div class="top-tap">
+				<div class="tap-not-checked tap-checked" iden="bx" onclick="changeType(0)">并线事故</div>
+				<div class="tap-not-checked" iden="zw" onclick="changeType(1)">追尾事故</div>
+				<div class="tap-not-checked" iden="qt" onclick="changeType(2)">其他事故</div>
+			</div>
+			<div class="phone-area">
+				<div class="left-sider ">
+					<!--<div class="menu-item">
+						<div class="menu-image">
+							<img src="../../images/tools/shigu/bx101.jpg" />
+						</div>
+						<div class="menu-text">两车正前方</div>
+					</div>-->
+				</div>
+				<div class="right-sider">
+					<div class="img-example">
+						<img src="" data-preview-src="" data-preview-group="2" data-content="这里是文字说明"/>
+					</div>
+					<div class="take-photos">
+						<div class="menu-item init">
+							<div class="menu-image">
+								<img src="../../images/imgadd.png" />
+							</div>
+							<div class="menu-text">Tip：长按可删除</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

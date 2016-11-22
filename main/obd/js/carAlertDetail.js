@@ -1,17 +1,26 @@
 var storage = window.localStorage;
 var _tl = getTLInstance();
-var alertDetail = JSON.parse(storage.getItem('alertDetail')) ;
-var carAlertParam = JSON.parse(storage.getItem('carAlertParam')) ;
-var defaultCar = JSON.parse(storage.getItem('defaultCar')) ;
+var alertDetail = JSON.parse(storage.getItem('alertDetail'));
+var carAlertParam = JSON.parse(storage.getItem('carAlertParam'));
+var defaultCar = JSON.parse(storage.getItem('defaultCar'));
+
+mui.plusReady(function() {})
 
 $(function() {
-
+	if(mui.os.ios&&mui.os.plus) {
+		$('body').addClass('ios-body');
+	}
 	//初始化告警详细窗体及标题
 	$('.x-title-bar').html(carAlertParam.alermName);
 	$('.text-car-no').html(defaultCar.carNo);
 	$('.text-date').html(_tl.getYMD(alertDetail.alermTime) + ' ' + _tl.getHMS(alertDetail.alermTime))
 	$('.text-address').html(alertDetail.alermAddress);
-	
+
+	loadGaodeMap();
+
+})
+
+function loadGaodeMap() {
 	//动态加载地图
 	var oHead = document.getElementsByTagName('HEAD').item(0);
 	var oScript = document.createElement("script");
@@ -21,17 +30,17 @@ $(function() {
 	oScript.onload = function() {
 		if(window.AMap && window.AMap.Map) {
 			var mapObj = new AMap.Map('alert_map', {
-				zoom: 16,
-				center: ['118.7212075967', '32.0332437435'],
+				zoom: 14,
+				center: [alertDetail.longitude, alertDetail.latitude],
 				dragEnable: true,
 				resizeEnable: true
 			});
-			
-			mapObj.plugin(['AMap.ToolBar'],function(){
+
+			mapObj.plugin(['AMap.ToolBar'], function() {
 				//设置地位标记为自定义标记
-				var toolBar = new AMap.ToolBar(); 
-				mapObj.addControl(toolBar);		
-			});	
+				var toolBar = new AMap.ToolBar();
+				mapObj.addControl(toolBar);
+			});
 
 			var marker = new AMap.Marker({
 				map: mapObj,
@@ -44,17 +53,20 @@ $(function() {
 
 			var infoWindow = new AMap.InfoWindow({});
 
-			marker.content = '<div class="info-content">' + $('.info-content').html() + '</div>';
+			marker.content = '<div class="info-content-large">' + $('.info-content').html() + '</div>';
 			infoWindow.setContent(marker.content);
 			infoWindow.open(mapObj, marker.getPosition());
-//			setTimeout(function() {
-//				mapObj.setCenter(['118.7212075967', '32.0332437435']);
-//			}, 500)
-			
-//			mapObj.setFitView(); 
 
+			_tl.hide($('.loading-tip'));
+			_tl.show($('.x-panel-content'));
+
+			//			mapObj.setFitView();
+
+		} else {
+			//解决加载了但无法创建地图问题
+			setTimeout(function() {
+				loadGaodeMap();
+			}, 1000)
 		}
-
 	}
-
-})
+}

@@ -1,0 +1,62 @@
+@import url("../../css/common/base.css" );
+@import url("../../js/common/swiper/css/swiper.min.css");
+
+.x-panel-content{background: #ffffff;}
+.top-info{padding:0 0.5rem }
+
+.top-info-left{padding-top:0.375rem;padding-bottom:0;float: left }
+.top-info-left .top-info-brand{height:1.6875rem;}
+.top-info-brand .brand{width: 1.6rem;height:100%;float: left;}
+.top-info-brand .brand img{width: 100%}
+.top-info-brand .car-no-type{padding-left:0.4rem;color: #333333;width: 4rem;float: left;height:100%;}
+.top-info-brand .car-no-type .car-no{font-size: 0.46875rem;padding-top:0.125rem;font-weight: 600}
+.top-info-brand .car-no-type .car-type{font-size: 0.40625rem;padding-top:0.25rem;font-weight: 500}
+
+.status-icon-ul{padding-left:0rem;padding-top:0.37875rem}
+.status-icon-ul li{width: 0.75rem;height:0.75rem;margin-right:0.5rem;float: left;padding: 0}
+.status-icon-ul li.last{margin-right: 0}
+.status-icon-ul li img{width: 100%;vertical-align: top;}
+
+.top-info-right{width: 2.96875rem;float: left;height:2.96875rem;margin-top:0.375rem}
+
+.avg_inspect_gray_bg{width: 100%;height: 100%;background: url(../../images/obd/obd_main_cp_gray.png) no-repeat;background-size:100%;}
+.avg_inspect{position:relative;width: 100%;height: 100%;background: url(../../images/obd/obd_main_check_cpbg.png) no-repeat center;margin-top:0.07813rem;background-size:100%;}
+.avg_inspect strong {position: absolute;top: 1rem;left: 0;width: 100%;text-align: center;font-size:1.1rem;color: red}
+.avg_inspect span {position: absolute;top: 1.8rem;left: 0;width: 100%;text-align: center;font-size: 0.3rem;color: #999999;}
+.avg_inspect canvas{width: 100%}
+
+
+/*当前里程等常规数据*/
+
+.car-normal-data{display: flex;flex-direction: row;padding: 0.2rem;margin-top: 0.375rem;border-top: 1px #eeeeee solid;min-height: 1.6rem}
+.normal-data-element{flex:1 1 0;text-align: center;font-size: 0.375rem;float: left;width: 33.333%;}
+
+.normal-data-element .normal-data-label{color: #969696;position: relative;}
+.normal-data-element .now-mile-label:before{content:'';background:url(../../images/obd/obd_p2_icon1.png) no-repeat;background-size: 100%;width: 0.5rem;height: 0.4rem;position: absolute;top:0.09rem;left:0.2rem}
+.normal-data-element .next-maintain-label:before{content:'';background:url(../../images/obd/obd_p2_icon2.png) no-repeat;background-size: 100%;width: 0.5rem;height: 0.4rem;position: absolute;top:0.09rem;left:0.2rem}
+.normal-data-element .next-date-label:before{content:'';background:url(../../images/obd/obd_p2_icon3.png) no-repeat;background-size: 100%;width: 0.5rem;height: 0.4rem;position: absolute;top:0.09rem;left:0.2rem}
+.normal-data-text{color: #FC3434;}
+
+/*自动旋转的图形区域*/
+.car-chart-panel{display: flex;flex-direction: row;padding:0.25rem 0.375rem 0.15rem 0.375rem;border-top: 0.10938rem greenyellow solid;min-height: 3rem}
+.car-chart-panel .avg-chart{flex:1 1 0;text-align: center;float: left;width: 33.333%;}
+.car-chart-panel .avg-chart .chart{width:1.9375rem;height: 1.9375rem;margin:0.125rem 0 0 0.125rem;}
+.car-chart-panel .avg-chart .chart img{width:0.6875rem;position: absolute;top:0.54688rem;text-align: center;left:0.78125rem}
+.car-chart-panel .avg-chart .chart span{position:absolute;top:1.15rem;color: #ffffff;font-size: 0.3725rem;font-weight: 200;width: 100%;text-align: center;left:0}
+.avg-chart-bg{width:2.1875rem;height: 2.1875rem;background:url(../../images/obd/obd_main_cp_gray.png) no-repeat;background-size:100% ;display: inline-block;position: relative;}
+.avg-chart-oil{background:url(../../images/obd/obd_main_cpbg1.png) no-repeat center;background-size: 100%;}
+.avg-chart-time{background:url(../../images/obd/obd_main_cpbg2.png) center;background-size:100%;}
+.avg-chart-speed{background:url(../../images/obd/obd_main_cpbg3.png) center;background-size:100%;}
+.car-chart-panel .avg-chart .avg-chart-label{text-align: center;font-size: 0.375rem;color: #969696;}
+.avg-chart canvas{width: 2.1875rem;height:2.1875rem;position: absolute;left: 0;top: 0;}
+
+
+.swiper-container {width: 100%;border-top: 0.10938rem deepskyblue solid;height:6.5rem}
+.swiper-wrapper{width: 10rem !important;position: absolute !important;}
+.swiper-pagination{bottom: 0px !important;}
+.swiper-pagination-bullet-active{background: #FC3434 !important;}
+.swiper-slide{padding: 0 0.1rem;}
+
+
+
+

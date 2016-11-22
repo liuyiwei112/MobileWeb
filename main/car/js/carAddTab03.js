@@ -6,6 +6,9 @@ var seriesId = insertedCar.seriesId,
 	brandName = insertedCar.brandName;
 
 $(function() {
+	if(mui.os.ios&&mui.os.plus){
+		$('body').addClass('ios-body');
+	}
 	$('.car-serial').html(brandName + '—'+seriesName);
 	_tl.loadImg(insertedCar.brandImg, $('.brand-img').find('img'))
 	var dataUrl = _tl.api + 'huijia/getCrmCarTypeBySeriesId?seriesId=' + seriesId;
