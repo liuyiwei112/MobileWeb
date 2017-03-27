@@ -3,10 +3,10 @@ var _tl = getTLInstance();
 var tripSerial = storage.getItem('tripSerial');
 
 $(function() {
-	loadData();
+	loadCo2Data();
 })
 
-function loadData(){
+function loadCo2Data(){
 //		var dataUrl = '../../data/obd/tripDetail03.json';
 		var dataUrl = _tl.api+'environmentalDetailsDrivingReport/'+tripSerial
 		$.getJSON(dataUrl, function(data) {

@@ -3,10 +3,10 @@ var _tl = getTLInstance();
 var tripSerial = storage.getItem('tripSerial');
 
 $(function() {
-	loadData();
+	loadOilData();
 })
 
-function loadData() {
+function loadOilData() {
 //	var dataUrl = '../../data/obd/tripDetail02.json';
 	var dataUrl = _tl.api+'detailsFuelDrivingReport/'+tripSerial
 	$.getJSON(dataUrl, function(data) {

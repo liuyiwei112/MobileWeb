@@ -16,7 +16,7 @@ $(function() {
 	if(mui.os.ios&&mui.os.plus){
 		$('body').addClass('ios-body');
 	}
-	//	var dataUrl = '../../data/obd/carAlert.json';
+//		var dataUrl = '../../data/obd/carAlert.json';
 	var dataUrl = _tl.api + 'alerm/alermCount?carId=' + carId;
 	$.getJSON(dataUrl, function(data) {
 		//objData.loadData(data);

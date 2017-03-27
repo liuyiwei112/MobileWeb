@@ -214,6 +214,7 @@ function doRouterDesign() {
 	var des = markerArray[nowIndex].getPosition();
 	var extra = markerArray[nowIndex].extData;
 	var start = '我的位置';
+	//IOS调用高德或者百度地图进行导航
 	if(mui.os.ios&&mui.os.plus) {
 		//判断用户是否已经安装 高德 或者 百度地图
 		var UIApplication = plus.ios.importClass("UIApplication");
@@ -238,6 +239,7 @@ function doRouterDesign() {
 		} else {
 			mui.alert('检测到您尚未安装高德或者百度地图');
 		}
+	//android调用高德或者百度地图进行导航	
 	} else if(mui.os.android&&mui.os.plus) {
 		var main = plus.android.runtimeMainActivity();
 		var packageManager = main.getPackageManager();
@@ -275,6 +277,7 @@ function doRouterDesign() {
 				mui.alert('检测到您尚未安装高德或者百度地图');
 			}
 		}
+	//web端不支持导航调用		
 	} else {
 		mui.alert('Web端暂不支持路径规划导航，请使用APP');
 	}

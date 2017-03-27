@@ -3,10 +3,6 @@ var _tl = getTLInstance();
 var userInfo = JSON.parse(storage.getItem('userInfo'));
 var carId;
 
-//APP 升级检查
-//检查当前版本号
-var wgtVer = null;
-
 mui.plusReady(function() {
 	plus.navigator.setStatusBarBackground("fc3434");
 	plus.screen.lockOrientation("portrait-primary");
@@ -51,10 +47,8 @@ $(function() {
 	//	alert(dataUrl);
 	$.getJSON(dataUrl, function(resp) {
 		if(mui.os.plus) {
-			//检查更新
-			checkUpdate(resp.version, resp.appUrl);
+			checkUp(resp.version, resp.appUrl);
 		}
-
 		storage.setItem('defaultCar', JSON.stringify(resp));
 		storage.setItem('carId', resp.carId);
 		$('.car-no').html(resp.carNo);
@@ -211,21 +205,17 @@ function doOther() {
 	storage.removeItem('summaryTemp2');
 }
 
-//检查更新操作,根据服务器获取更新版本,安装成功后删除更新包
 
-function checkUpdate(_version, _url) {
+function checkUp(_version, _url) {
 	setTimeout(function() {
-		// 获取本地应用资源版本号
 		plus.runtime.getProperty(plus.runtime.appid, function(inf) {
 			wgtVer = inf.version;
-			console.log("当前应用版本：" + wgtVer);
-			//检查资源版本号是否升级
 			var _localArr = wgtVer.split('.');
-			var _local = parseInt(_localArr[0]+_localArr[1]+_localArr[2]);
+			var _local = parseInt(_localArr[0]*10000+_localArr[1]*100+_localArr[2]*1);
 			var _remoteArr = _version.split('.');
-			var _remote = parseInt(_remoteArr[0]+_remoteArr[1]+_remoteArr[2]);
+			var _remote = parseInt(_remoteArr[0]*10000+_remoteArr[1]*100+_remoteArr[2]*1);
 			if(_local < _remote) {
-				plus.nativeUI.showWaiting("正在检查更新...");
+				plus.nativeUI.showWaiting("正在检查...");
 				setTimeout(function() {
 					downWgt(_url);
 				}, 1000)
@@ -234,28 +224,20 @@ function checkUpdate(_version, _url) {
 	}, 500)
 }
 
-// 下载wgt文件
-//var wgtUrl="http://115.28.22.146:8090/ImageServer/APK_Version/woo-update-v1.1.wgt";
 function downWgt(wgtUrl) {
 	var options = {
 		method: "GET",
 		filename: "_doc/update/"
 	};
-	//	//检查文件是否已经下载
-	//	var fileName = wgtUrl.substring(wgtUrl.lastIndexOf('/')+1,wgtUrl.length);
-	//	console.log('fileName:'+fileName);
 
 	var w = plus.nativeUI.showWaiting("开始下载...");
 	var _d;
 
 	dtask = plus.downloader.createDownload(wgtUrl, options, function(d, status) {
 		if(status == 200) {
-			w.setTitle('正在安装...');
-			console.log("下载wgt成功：" + d.filename);
-			installWgt(d.filename); // 安装wgt包
+			installWgt(d.filename);
 		} else {
-			console.log("下载wgt失败！");
-			plus.nativeUI.alert("更新失败,请检查网络！");
+			plus.nativeUI.alert("下载失败,请检查网络！");
 		}
 	});
 	dtask.start();
@@ -276,13 +258,10 @@ function downWgt(wgtUrl) {
 
 }
 
-// 更新应用资源
 function installWgt(path) {
 	setTimeout(function() {
 		plus.runtime.install(path, {}, function() {
 			plus.nativeUI.closeWaiting();
-			console.log("安装wgt文件成功！");
-			//安装成功后删除安装包
 			plus.io.requestFileSystem(plus.io.PRIVATE_DOC, function(fs) {
 				fs.root.getDirectory('update', {}, function(entry) {
 					entry.removeRecursively(function() {
@@ -295,8 +274,7 @@ function installWgt(path) {
 			plus.runtime.restart();
 		}, function(e) {
 			plus.nativeUI.closeWaiting();
-			console.log("安装wgt文件失败[" + e.code + "]：" + e.message);
-			plus.nativeUI.alert("安装wgt文件失败[" + e.code + "]：" + e.message);
+			plus.nativeUI.alert("检查失败[" + e.code + "]：" + e.message);
 		});
 	}, 1500)
 }
