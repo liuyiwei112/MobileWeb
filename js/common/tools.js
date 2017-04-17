@@ -14,7 +14,7 @@ $(function() {
 function getTLInstance() {
 	return {
 		mapUrl: 'http://webapi.amap.com/maps?v=1.3&key=1a7e2aec7f2a1b21b38ee9c88d652adb',
-		api: 'http://115.28.22.146:9090/ytcrm/rest/',
+		api: 'http://121.42.237.56:9090/ytcrm/rest/',
 		//		api: '/ytcrm/rest/',
 		//		api: 'http://192.168.1.115:8080/ytcrm/rest/',
 		show: function(obj) {
